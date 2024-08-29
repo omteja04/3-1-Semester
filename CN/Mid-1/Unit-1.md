@@ -113,8 +113,7 @@ Multi-mode fiber allows many modes for the light rays traveling through it. The 
    - **Structure:** Devices are connected in a circular manner, with each device having exactly two neighbors. Data travels in one direction (or both in a dual-ring system) around the ring.
    - **Advantages:** Provides predictable data transfer times. Easy to identify faults.
    - **Disadvantages:** A failure in any single connection can disrupt the entire network. Troubleshooting can be challenging.
-
-![ring](https://www.cablify.ca/wp-content/uploads/2018/04/Ring-Topology.jpg)
+<img src="https://www.cablify.ca/wp-content/uploads/2018/04/Ring-Topology.jpg" width="500" alt="Ring Topology">
 
 
 
