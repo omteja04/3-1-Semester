@@ -99,7 +99,7 @@ Multi-mode fiber allows many modes for the light rays traveling through it. The 
    - **Advantages:** Easy to install and manage. Failure of a single device does not affect others.
    - **Disadvantages:** If the central hub fails, the entire network is affected.
 
-![star](https://www.cablify.ca/wp-content/uploads/2018/04/Star-Topology.jpg)
+<img src="https://www.cablify.ca/wp-content/uploads/2018/04/Star-Topology.jpg" width="500" alt="Star Topology">
 
 2. **Bus Topology:**
 
@@ -107,13 +107,10 @@ Multi-mode fiber allows many modes for the light rays traveling through it. The 
    - **Advantages:** Easy to implement and cost-effective for small networks.
    - **Disadvantages:** Performance issues with heavy traffic. Failure in the central bus can disrupt the entire network.
 
-![bus](https://www.cablify.ca/wp-content/uploads/2018/04/bus-topology.jpg)
+<img src="https://www.cablify.ca/wp-content/uploads/2018/04/bus-topology.jpg" width="500" alt="Bus Topology">
 
 3. **Ring Topology:**
    - **Structure:** Devices are connected in a circular manner, with each device having exactly two neighbors. Data travels in one direction (or both in a dual-ring system) around the ring.
    - **Advantages:** Provides predictable data transfer times. Easy to identify faults.
    - **Disadvantages:** A failure in any single connection can disrupt the entire network. Troubleshooting can be challenging.
-<img src="https://www.cablify.ca/wp-content/uploads/2018/04/Ring-Topology.jpg" width="500" alt="Ring Topology">
-
-
-
+     <img src="https://www.cablify.ca/wp-content/uploads/2018/04/Ring-Topology.jpg" width="500" alt="Ring Topology">
