@@ -290,6 +290,8 @@ The TCP/IP model consists of four layers: the application layer, transport layer
 - `FTP`: FTP stands for File Transfer Protocol. FTP is a standard internet protocol used for transmitting the files from one computer to another computer.
 - `TELNET`: It is an abbreviation for Terminal Network. It establishes the connection between the local computer and remote computer in such a way that the local terminal appears to be a terminal at the remote system.
 
+---
+
 ## Explain about various transmission media in the physical layer with a neat sketch.
 
 In the physical layer of network communication, transmission media are the physical paths that data travels over from one device to another. These media can be broadly classified into guided and unguided media.
