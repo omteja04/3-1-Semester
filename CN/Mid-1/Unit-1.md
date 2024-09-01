@@ -347,3 +347,10 @@ In the physical layer of network communication, transmission media are the physi
 
 - Uses infrared light to transmit data over short distances. It requires line-of-sight and is commonly used in remote controls.
 - **Applications**: Remote controls, short-range data transfer.
+
+<br>
+<div align='center'>
+  <a href='https://github.com/omteja04'>
+    <img src='https://img.shields.io/badge/GitHub-omteja04-181717?logo=github' alt='GitHub Profile'>
+  </a>
+</div>
