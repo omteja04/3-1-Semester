@@ -272,12 +272,14 @@ In this protocol, all the station has the equal priority to send the data over a
 #### 2. Carrier Sense Multiple Access (CSMA)
 
 - **CSMA**: Devices first listen to the channel (carrier sense) before sending data. If the channel is busy, they wait; otherwise, they transmit.
-- **CSMA/CD (Collision Detection)**: Detects collisions during transmission (used in Ethernet).
-- **CSMA/CA (Collision Avoidance)**: Tries to prevent collisions by waiting before sending data (used in Wi-Fi).
+- **CSMA/CD (Collision Detection)**: Detects collisions during transmission.
+  - **Example**: _Wired Ethernet_
+- **CSMA/CA (Collision Avoidance)**: Tries to prevent collisions by waiting before sending data.
+  - **Example**: _Wi-Fi_
 
 ### Controlled Access Protocols
 
-In the controlled access method, each station interacts and decides to send a data frame by a particular station approved by all other stations.It means that a single station cannot send the data frames unless all other stations are not approved.
+In the controlled access method, each station interacts and decides to send a data frame by a particular station approved by all other stations. It means that a single station cannot send the data frames unless all other stations are not approved.
 
 #### 1. Polling
 
@@ -302,6 +304,7 @@ It is a channelization protocol that allows the total usable bandwidth in a shar
 #### 2. Frequency Division Multiple Access (FDMA)
 
 - Divides the available bandwidth into frequency channels, and each device gets a unique frequency. Devices can transmit simultaneously but on different frequencies.
+  - **Example**: _Analog FM radio_
 
 #### 3. Code Division Multiple Access (CDMA)
 
