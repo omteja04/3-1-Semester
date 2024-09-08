@@ -308,7 +308,6 @@ It is a channelization protocol that allows the total usable bandwidth in a shar
 - Devices transmit using unique codes. Multiple devices can transmit simultaneously, and receivers use these codes to decode specific transmissions.
 
 ---
-
 <br>
 <div align='center'>
   <a href='https://github.com/omteja04' target="_blank">
