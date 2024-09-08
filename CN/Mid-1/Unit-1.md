@@ -4,46 +4,69 @@
   Description: Unit-1
 -->
 
-- [Unit - 1](#unit---1)
-  - [Compare and contrast the OSI and TCP/IP reference models.](#compare-and-contrast-the-osi-and-tcpip-reference-models)
-  - [Explain about Fiber optic cable? What are the types of Fiber optic cable.](#explain-about-fiber-optic-cable-what-are-the-types-of-fiber-optic-cable)
-    - [Main Elements of Fiber Optics](#main-elements-of-fiber-optics)
-    - [Types of Fiber Optics](#types-of-fiber-optics)
-    - [Advantages of Fiber Optics](#advantages-of-fiber-optics)
-    - [Disadvantages of Fiber Optics](#disadvantages-of-fiber-optics)
-    - [Uses of Fiber Optics](#uses-of-fiber-optics)
-  - [What is Network topology? List any 3 network topologies.](#what-is-network-topology-list-any-3-network-topologies)
-    - [Three Common Network Topologies:](#three-common-network-topologies)
-  - [Explain the functionality of each layer in OSI reference model.](#explain-the-functionality-of-each-layer-in-osi-reference-model)
-    - [OSI Model](#osi-model)
-    - [7 Layers of OSI Model](#7-layers-of-osi-model)
-      - [1. Physical layer](#1-physical-layer)
-      - [2. Data-Link Layer](#2-data-link-layer)
-      - [3. Network Layer](#3-network-layer)
-      - [4. Transport Layer](#4-transport-layer)
-      - [5. Session Layer](#5-session-layer)
-      - [6. Presentation Layer](#6-presentation-layer)
-      - [7. Application Layer](#7-application-layer)
-  - [Explain the layers of TCP/IP reference model.](#explain-the-layers-of-tcpip-reference-model)
-    - [The TCP/IP Reference Model](#the-tcpip-reference-model)
-      - [1. Network Access Layer](#1-network-access-layer)
-      - [2. Internet Layer](#2-internet-layer)
-      - [3. Transport Layer](#3-transport-layer)
-      - [4. Application Layer](#4-application-layer)
-  - [Explain about various transmission media in the physical layer with a neat sketch.](#explain-about-various-transmission-media-in-the-physical-layer-with-a-neat-sketch)
-    - [Classification Of Transmission Media](#classification-of-transmission-media)
-    - [1. Guided Media](#1-guided-media)
-      - [a. Twisted Pair Cable](#a-twisted-pair-cable)
-      - [b. Coaxial Cable](#b-coaxial-cable)
-      - [c. Optical Fiber Cable](#c-optical-fiber-cable)
-    - [2. Unguided Media](#2-unguided-media)
-      - [a. Radio Waves](#a-radio-waves)
-      - [b. Microwaves](#b-microwaves)
-      - [c. Infrared](#c-infrared)
+- [1. Compare and contrast the OSI and TCP/IP reference models.](#1-compare-and-contrast-the-osi-and-tcpip-reference-models)
+- [2. Explain about Fiber optic cable? What are the types of Fiber optic cable.](#2-explain-about-fiber-optic-cable-what-are-the-types-of-fiber-optic-cable)
+  - [Main Elements of Fiber Optics](#main-elements-of-fiber-optics)
+  - [Types of Fiber Optics](#types-of-fiber-optics)
+  - [Advantages of Fiber Optics](#advantages-of-fiber-optics)
+  - [Disadvantages of Fiber Optics](#disadvantages-of-fiber-optics)
+  - [Uses of Fiber Optics](#uses-of-fiber-optics)
+- [3. What is Network topology? List any 3 network topologies.](#3-what-is-network-topology-list-any-3-network-topologies)
+  - [Three Common Network Topologies:](#three-common-network-topologies)
+- [4. Explain the functionality of each layer in OSI reference model.](#4-explain-the-functionality-of-each-layer-in-osi-reference-model)
+  - [OSI Model](#osi-model)
+  - [7 Layers of OSI Model](#7-layers-of-osi-model)
+    - [1. Physical layer](#1-physical-layer)
+    - [2. Data-Link Layer](#2-data-link-layer)
+    - [3. Network Layer](#3-network-layer)
+    - [4. Transport Layer](#4-transport-layer)
+    - [5. Session Layer](#5-session-layer)
+    - [6. Presentation Layer](#6-presentation-layer)
+    - [7. Application Layer](#7-application-layer)
+- [5. Explain the layers of TCP/IP reference model.](#5-explain-the-layers-of-tcpip-reference-model)
+  - [The TCP/IP Reference Model](#the-tcpip-reference-model)
+    - [1. Network Access Layer](#1-network-access-layer)
+    - [2. Internet Layer](#2-internet-layer)
+    - [3. Transport Layer](#3-transport-layer)
+    - [4. Application Layer](#4-application-layer)
+- [6. Differentiate Radio waves and Microwaves in details.](#6-differentiate-radio-waves-and-microwaves-in-details)
+  - [Key Differences:](#key-differences)
+- [7. Explain about various transmission media in the physical layer with a neat sketch.](#7-explain-about-various-transmission-media-in-the-physical-layer-with-a-neat-sketch)
+  - [Classification Of Transmission Media](#classification-of-transmission-media)
+  - [1. Guided Media](#1-guided-media)
+    - [a. Twisted Pair Cable](#a-twisted-pair-cable)
+    - [b. Coaxial Cable](#b-coaxial-cable)
+    - [c. Optical Fiber Cable](#c-optical-fiber-cable)
+  - [2. Unguided Media](#2-unguided-media)
+    - [a. Radio Waves](#a-radio-waves)
+    - [b. Microwaves](#b-microwaves)
+    - [c. Infrared](#c-infrared)
+- [8. Describe any two Guided transmission media options.](#8-describe-any-two-guided-transmission-media-options)
+  - [Guided Transmission Media](#guided-transmission-media)
+  - [1. Twisted Pair Cable](#1-twisted-pair-cable)
+    - [Definition:](#definition)
+    - [Key Features:](#key-features)
+    - [Advantages:](#advantages)
+    - [Disadvantages:](#disadvantages)
+  - [2. Optical Fiber Cable](#2-optical-fiber-cable)
+    - [Definition:](#definition-1)
+    - [Key Features:](#key-features-1)
+    - [Advantages:](#advantages-1)
+    - [Disadvantages:](#disadvantages-1)
+- [9. Summarize the classification of Network types.](#9-summarize-the-classification-of-network-types)
+  - [1. Local Area Network (LAN)](#1-local-area-network-lan)
+  - [2. Personal Area Network (PAN)](#2-personal-area-network-pan)
+  - [3. Metropolitan Area Network (MAN)](#3-metropolitan-area-network-man)
+  - [4. Wide Area Network (WAN)](#4-wide-area-network-wan)
+- [10. Explain about Transport layer and Presentation layer with neat diagrams.](#10-explain-about-transport-layer-and-presentation-layer-with-neat-diagrams)
+  - [Transport Layer (Layer 4)](#transport-layer-layer-4)
+    - [Functions:](#functions)
+    - [Common Protocols:](#common-protocols)
+  - [Presentation Layer (Layer 6)](#presentation-layer-layer-6)
+    - [Functions:](#functions-1)
+    - [Common Functions:](#common-functions)
 
-# Unit - 1
-
-## Compare and contrast the OSI and TCP/IP reference models.
+## 1. Compare and contrast the OSI and TCP/IP reference models.
 
 ![OSI vs TCP/IP](https://media.geeksforgeeks.org/wp-content/uploads/20240701125905/OSI-vs-TCP.png)
 
@@ -62,7 +85,7 @@
 
 ---
 
-## Explain about Fiber optic cable? What are the types of Fiber optic cable.
+## 2. Explain about Fiber optic cable? What are the types of Fiber optic cable.
 
 Fiber optic cable is a type of network cable that uses light to transmit data.
 
@@ -117,7 +140,7 @@ Multi-mode fiber allows many modes for the light rays traveling through it. The 
 
 ---
 
-## What is Network topology? List any 3 network topologies.
+## 3. What is Network topology? List any 3 network topologies.
 
 **Network Topology** refers to the arrangement or layout of various elements (links, nodes, etc.) in a computer network. It defines how devices and network components are interconnected and how data flows through the network. Network topology impacts the performance, reliability, and scalability of a network.
 
@@ -148,7 +171,7 @@ Multi-mode fiber allows many modes for the light rays traveling through it. The 
 
 ---
 
-## Explain the functionality of each layer in OSI reference model.
+## 4. Explain the functionality of each layer in OSI reference model.
 
 ### OSI Model
 
@@ -235,7 +258,7 @@ There are the seven OSI layers. Each layer has different functions. A list of se
 
 ---
 
-## Explain the layers of TCP/IP reference model.
+## 5. Explain the layers of TCP/IP reference model.
 
 ### The TCP/IP Reference Model
 
@@ -270,7 +293,7 @@ The TCP/IP model consists of four layers: the application layer, transport layer
 - The transport layer is responsible for the reliability, flow control, and correction of data which is being sent over the network.
 - The two protocols used in the transport layer:
 
-  - `User Datagram protocol (UDP):` It provides connectionless service and end-to-end delivery of transmission.
+  - `User Datagram protocol (UDP):` It provides connection-less service and end-to-end delivery of transmission.
 
   - `Transmission control protocol (TCP):`It provides a full transport layer services to applications.
 
@@ -292,7 +315,31 @@ The TCP/IP model consists of four layers: the application layer, transport layer
 
 ---
 
-## Explain about various transmission media in the physical layer with a neat sketch.
+## 6. Differentiate Radio waves and Microwaves in details.
+
+- **Radio Waves**: Radio waves are a type of electromagnetic radiation with frequencies ranging from 3 Hz to 300 GHz and wavelengths from 1 millimeter to 100 kilometers. They are commonly used in communication systems like radio broadcasting, television, and cell phones due to their ability to travel long distances and penetrate various materials.
+
+- **Microwaves**: Microwaves are electromagnetic waves with frequencies between 300 MHz and 300 GHz, and wavelengths ranging from 1 millimeter to 1 meter. They are used for applications such as satellite communication, radar, microwave ovens, and Wi-Fi because they allow for high-speed data transmission and focused energy for heating.
+
+---
+
+### Key Differences:
+
+| **Aspect**               | **Radio Waves**                                  | **Microwaves**                                        |
+| ------------------------ | ------------------------------------------------ | ----------------------------------------------------- |
+| **Frequency Range**      | 3 Hz to 300 GHz                                  | 300 MHz to 300 GHz                                    |
+| **Wavelength Range**     | 1 mm to 100 km                                   | 1 mm to 1 meter                                       |
+| **Energy**               | Lower energy                                     | Higher energy                                         |
+| **Distance Covered**     | Long-range communication                         | Shorter range, line-of-sight                          |
+| **Penetration Power**    | Easily penetrates air and buildings              | Absorbed by water and obstructed by metals            |
+| **Primary Applications** | AM/FM radio, TV broadcasting, cell communication | Wi-Fi, radar, satellite, microwave ovens              |
+| **Propagation**          | Can reflect off the ionosphere for long-range    | Requires line-of-sight, little atmospheric reflection |
+
+Radio waves are more suited for long-distance, low-energy applications, while microwaves are used for high-speed, high-energy, and more precise applications.
+
+---
+
+## 7. Explain about various transmission media in the physical layer with a neat sketch.
 
 In the physical layer of network communication, transmission media are the physical paths that data travels over from one device to another. These media can be broadly classified into guided and unguided media.
 
@@ -349,6 +396,190 @@ In the physical layer of network communication, transmission media are the physi
 
 - Uses infrared light to transmit data over short distances. It requires line-of-sight and is commonly used in remote controls.
 - **Applications**: Remote controls, short-range data transfer.
+
+---
+
+## 8. Describe any two Guided transmission media options.
+
+### Guided Transmission Media
+
+Guided transmission media refers to physical pathways that guide the flow of signals from one point to another. Two common types of guided transmission media are **Twisted Pair Cable** and **Optical Fiber Cable**.
+
+---
+
+### 1. Twisted Pair Cable
+
+#### Definition:
+
+Twisted pair cable consists of pairs of insulated copper wires twisted together to reduce electromagnetic interference from external sources. It is one of the most commonly used transmission media in telecommunication networks and local area networks (LANs).
+
+![twisted-pair](https://www.fiberopticshare.com/wp-content/uploads/2016/10/UTP-and-STP-cable.png)
+
+#### Key Features:
+
+- **Structure**: Two conductors twisted together in a helical form.
+- **Types**:
+  - **Unshielded Twisted Pair (UTP)**: Lacks shielding around the twisted wires, widely used in LANs and telecommunication.
+  - **Shielded Twisted Pair (STP)**: Has a protective metal shield around the twisted wires, offering better protection against interference.
+
+#### Advantages:
+
+- **Cost-Effective**: Less expensive compared to other guided media.
+- **Flexible**: Easy to install and handle.
+- **Common Use**: Widely used in telephones, Ethernet, and DSL connections.
+
+#### Disadvantages:
+
+- **Limited Bandwidth**: Cannot support very high data rates compared to optical fiber.
+- **Susceptible to Interference**: Although twisting helps reduce interference, it is still more vulnerable to electromagnetic interference than shielded cables or fiber optics.
+
+---
+
+### 2. Optical Fiber Cable
+
+#### Definition:
+
+Optical fiber is a thin, flexible medium capable of transmitting light signals over long distances. It uses light to carry information, allowing for very high bandwidth and data transmission over long distances without significant signal loss.
+
+![elements](https://media.geeksforgeeks.org/wp-content/uploads/20200628185425/1406-7.png)
+
+#### Key Features:
+
+- **Structure**: Made of a core (glass or plastic) surrounded by a cladding and protective outer coating. Light signals travel through the core via total internal reflection.
+- **Types**:
+  - **Single-Mode Fiber**: Allows only one light path, ideal for long-distance communication with minimal signal degradation.
+  - **Multi-Mode Fiber**: Allows multiple light paths, typically used for shorter distances and lower data rates.
+
+#### Advantages:
+
+- **High Bandwidth**: Can support extremely high data rates and large volumes of data.
+- **Long Distance**: Signals can travel long distances with minimal attenuation and without interference.
+- **Resistant to Electromagnetic Interference**: Immune to electrical noise and interference from external sources.
+
+#### Disadvantages:
+
+- **Cost**: More expensive to install than twisted pair cables due to specialized equipment and material.
+- **Fragility**: Optical fibers are more fragile compared to copper wires and require careful handling.
+
+---
+
+## 9. Summarize the classification of Network types.
+
+A computer network is a group of computers linked to each other that enables the computer to communicate with another computer and share their resources, data, and applications.
+
+A computer network can be categorized by their size. A computer network is mainly of four types:
+
+![NETWORKS](https://javatpoint-images.s3.eu-north-1.amazonaws.com/tutorial/computer-network/images/types-of-computer-network.png)
+
+- [1. Local Area Network (LAN)](#1-local-area-network-lan)
+- [2. Personal Area Network (PAN)](#2-personal-area-network-pan)
+- [3. Metropolitan Area Network (MAN)](#3-metropolitan-area-network-man)
+- [4. Wide Area Network (WAN)](#4-wide-area-network-wan)
+
+### 1. Local Area Network (LAN)
+
+- Covers a A small geographical area, such as a building or campus (up to a few kilometers).
+- Used to Connecting computers and devices within a limited area for resource sharing (e.g., printers, file servers).
+- **Example**: Ethernet, Wi-Fi.
+
+**Key Features:**
+
+- High-speed data transfer.
+- Typically private, within an organization or home.
+- Limited by physical distance and number of devices.
+
+![LAN](https://javatpoint-images.s3.eu-north-1.amazonaws.com/tutorial/computer-network/images/local-area-network.png)
+
+---
+
+### 2. Personal Area Network (PAN)
+
+- Covers a A few meters (typically up to 10 meters).
+- Used to Connecting personal devices such as smartphones, tablets, laptops, and wearables.
+- **Example**: Bluetooth, Infrared.
+
+**Key Features:**
+
+- Designed for short-range communication.
+- Often used for connecting individual devices in close proximity.
+- Low power consumption.
+
+![PAN](https://javatpoint-images.s3.eu-north-1.amazonaws.com/tutorial/computer-network/images/personal-area-network.png)
+
+---
+
+### 3. Metropolitan Area Network (MAN)
+
+- Covers a A larger geographical area than a LAN, typically a city or a group of nearby buildings (up to 100 kilometers).
+- Used to Connecting multiple LANs within a city or campus, often used by large organizations.
+- **Example**: City-wide Wi-Fi, cable television networks.
+
+**Key Features:**
+
+- Intermediate range between LAN and WAN.
+- Supports high-speed data transfer over medium distances.
+- Useful for connecting multiple buildings or locations within a metropolitan area.
+
+![MAN](https://javatpoint-images.s3.eu-north-1.amazonaws.com/tutorial/computer-network/images/metropolitan-area-network.png)
+
+---
+
+### 4. Wide Area Network (WAN)
+
+- Covers a Large geographical area, often across countries or continents.
+- Used to Connecting LANs and MANs over long distances for communication between different locations.
+- **Example**: The Internet, leased lines.
+
+**Key Features:**
+
+- Covers broad geographic areas.
+- Can be public (like the Internet) or private (such as a company’s leased line network).
+- Involves complex infrastructure for long-distance communication.
+
+![WAN](https://360techexplorer.com/wp-content/uploads/2021/05/Wide-Area-Network-WAN.jpg)
+
+---
+
+## 10. Explain about Transport layer and Presentation layer with neat diagrams.
+
+### Transport Layer (Layer 4)
+
+The **Transport Layer** is responsible for ensuring reliable data transfer between devices on a network. It manages the delivery of data, error detection, and flow control.
+![transport](https://static.javatpoint.com/tutorial/computer-network/images/osi-model7.png)
+
+#### Functions:
+
+1. **Segmentation and Reassembly**: Divides data from the upper layers into smaller packets before transmission and reassembles them upon receiving.
+2. **Error Detection and Correction**: Ensures data is transmitted accurately by using checksums and acknowledgment.
+3. **Flow Control**: Manages the rate at which data is sent to avoid overwhelming the receiver.
+4. **Connection Control**:
+   - **Connection-Oriented** (e.g., TCP): Establishes a connection before transmitting data.
+   - **Connection-less** (e.g., UDP): Sends data without establishing a connection.
+5. **Port Addressing**: Identifies different applications using port numbers, ensuring data is sent to the correct process.
+
+#### Common Protocols:
+
+- **TCP (Transmission Control Protocol)**: Reliable, connection-oriented protocol.
+- **UDP (User Datagram Protocol)**: Unreliable, connection-less protocol used for faster transmission.
+
+---
+
+### Presentation Layer (Layer 6)
+
+The **Presentation Layer** is responsible for data translation, encryption, and compression. It ensures that the data sent from the application layer of one system is readable by the application layer of another system.
+![presentation](https://static.javatpoint.com/tutorial/computer-network/images/osi-model9.png)
+
+#### Functions:
+
+1. **Data Translation**: Converts data into a format that the receiving application can understand. It handles different data formats like ASCII, EBCDIC, JPEG, etc.
+2. **Data Encryption/Decryption**: Encrypts data to maintain security during transmission and decrypts it at the receiving end.
+3. **Data Compression/Decompression**: Reduces the size of data for efficient transmission and then decompresses it upon receiving.
+
+#### Common Functions:
+
+- **Character encoding (ASCII to Unicode)**: Converts character formats to ensure compatibility.
+- **Data compression**: Reduces the data size for efficient transmission.
+- **Encryption/Decryption**: Ensures secure data transfer.
 
 <br>
 <div align='center'>
