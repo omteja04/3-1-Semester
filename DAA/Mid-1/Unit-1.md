@@ -258,7 +258,7 @@ The problem can be broken down as follows:
 
 This recursive structure allows us to solve the Towers of Hanoi problem for any number of disks.
 
-> Tower of Hanoi puzzle with n disks can be solved in minimum \(2^{(n−1)}\) steps.
+> Tower of Hanoi puzzle with n disks can be solved in minimum \(2^{(n−1)}\) steps
 
 ![](https://www.tutorialspoint.com/data_structures_algorithms/images/tower_of_hanoi.gif)
 
