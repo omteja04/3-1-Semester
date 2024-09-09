@@ -28,6 +28,10 @@ the operations executed.
 4. **Determine Time Complexity**: Use `Big O` notation to describe the
    asymptotic complexity of the algorithm based on the step count.
 
+![alt text](image.png)
+
+![alt text](image-1.png)
+
 ## 2. Step-Table Method
 
 The Step-Table Method involves creating a table that lists the steps executed by
@@ -49,3 +53,8 @@ the time complexity.
    size increases. Look for a pattern or trend.
 4. **Determine Big O Notation**: Based on the observed growth pattern,
    determine the time complexity in Big O notation.
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+![alt text](image-4.png)
