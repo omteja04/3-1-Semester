@@ -6,7 +6,6 @@
   - [Amortized Analysis](#amortized-analysis)
     - [Key Types of Amortized Analysis:](#key-types-of-amortized-analysis)
     - [Example of Amortized Analysis: `Dynamic Array`](#example-of-amortized-analysis-dynamic-array)
-- [Inserting an element into a dynamic array takes constant time `O(1)` in most cases. However, when the array is full, it must be resized, which takes linear time `O(n)` where `n` is the current size of the array. By analyzing the cost of multiple insertions (accounting for resizing), the average cost (amortized) of an insertion remains `O(1)` despite the occasional expensive resizing operation.](#inserting-an-element-into-a-dynamic-array-takes-constant-time-o1-in-most-cases-however-when-the-array-is-full-it-must-be-resized-which-takes-linear-time-on-where-n-is-the-current-size-of-the-array-by-analyzing-the-cost-of-multiple-insertions-accounting-for-resizing-the-average-cost-amortized-of-an-insertion-remains-o1-despite-the-occasional-expensive-resizing-operation)
 - [Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?](#write-about-the-pseudo-code-conventions-and-explain-about-different-asymptotic-notations-with-examples)
   - [Pseudo Code Conventions](#pseudo-code-conventions)
   - [Asymptotic Notations (with Examples)](#asymptotic-notations-with-examples)
@@ -70,7 +69,7 @@ Amortized analysis is a method used to analyze the average time complexity of an
 
 #### Example of Amortized Analysis: `Dynamic Array`
 
-## Inserting an element into a dynamic array takes constant time `O(1)` in most cases. However, when the array is full, it must be resized, which takes linear time `O(n)` where `n` is the current size of the array. By analyzing the cost of multiple insertions (accounting for resizing), the average cost (amortized) of an insertion remains `O(1)` despite the occasional expensive resizing operation.
+Inserting an element into a dynamic array takes constant time `O(1)` in most cases. However, when the array is full, it must be resized, which takes linear time `O(n)` where `n` is the current size of the array. By analyzing the cost of multiple insertions (accounting for resizing), the average cost (amortized) of an insertion remains `O(1)` despite the occasional expensive resizing operation.
 
 ## Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?
 
