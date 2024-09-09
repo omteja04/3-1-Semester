@@ -19,6 +19,16 @@
     - [Rules](#rules)
   - [Algorithm](#algorithm)
   - [Pseudo Code](#pseudo-code)
+    - [Explanation of the Pseudo Code:](#explanation-of-the-pseudo-code)
+  - [Time Complexity:](#time-complexity)
+  - [Space Complexity:](#space-complexity)
+- [4. Discuss about the Randomized Algorithms? Build the randomized algorithm for Selection Sort?](#4-discuss-about-the-randomized-algorithms-build-the-randomized-algorithm-for-selection-sort)
+  - [Randomized Algorithms](#randomized-algorithms)
+  - [Characteristics of Randomized Algorithms:](#characteristics-of-randomized-algorithms)
+  - [Randomized Algorithm for Selection Sort](#randomized-algorithm-for-selection-sort)
+  - [Randomized Selection Sort Algorithm:](#randomized-selection-sort-algorithm)
+  - [Pseudo Code:](#pseudo-code-1)
+  - [Explanation of Pseudo Code:](#explanation-of-pseudo-code)
 
 ## 1. Explain different Criteria of an Algorithm and Discuss about the Time and Space Complexities. Discuss about the Amortized Analysis.
 
@@ -270,4 +280,90 @@ Algorithm TowerOfHanoi(disk, source, destination, helper)
     TowerOfHanoi(disk - 1, helper, destination, source)     // Step 3
   }
 ```
+
+#### Explanation of the Pseudo Code:
+
+- **Base Case**: When `n == 1`, the function moves the disk from source to destination.
+- **Recursive Case**:
+  1. The function calls itself to move `n-1` disks from the `source` to the `helper` rod, using the `destination` rod as a temporary holder.
+  2. The nth (largest) disk is moved directly from the `source` rod to the `destination` rod.
+  3. Finally, the function recursively moves the `n-1` disks from the `helper` rod to the `destination` rod, using the `source` rod as a temporary holder.
+
+### Time Complexity:
+
+The time complexity of the Towers of Hanoi algorithm is **O(2^n)** because for each disk, you first need to move `n-1` disks twice (once to the helper rod and then to the destination), plus one move for the nth disk. The number of moves required is \(2^n - 1\), which makes the time complexity exponential.
+
+### Space Complexity:
+
+The space complexity is **O(n)** due to the recursive call stack depth of `n` in the worst case, where `n` is the number of disks.
+
 ---
+
+## 4. Discuss about the Randomized Algorithms? Build the randomized algorithm for Selection Sort?
+
+### Randomized Algorithms
+
+**Randomized algorithms** are algorithms that use random numbers at some point during their execution to make decisions. This randomness can help in making the algorithm more efficient or simpler in solving problems, particularly when deterministic algorithms may be complex or inefficient.
+
+Randomized algorithms can be classified into two categories:
+
+1. **Las Vegas Algorithms**: These algorithms always produce a correct result, but their runtime may vary based on the random choices made. The correctness of the solution is guaranteed, but the efficiency might differ across runs.
+   - Example: Randomized QuickSort.
+2. **Monte Carlo Algorithms**: These algorithms have a probabilistic guarantee of correctness. They may produce an incorrect result with some small probability, but usually, the algorithm runs faster than deterministic alternatives.
+   - Example: Randomized primality test.
+
+### Characteristics of Randomized Algorithms:
+
+- **Simplicity**: Randomness often leads to simpler algorithms.
+- **Efficiency**: Randomized algorithms can sometimes outperform deterministic algorithms by avoiding worst-case scenarios.
+- **Probabilistic Guarantees**: The performance or correctness is analyzed using probability, often with expected time complexity or error bounds.
+
+---
+
+### Randomized Algorithm for Selection Sort
+
+In the classic **Selection Sort**, we iterate through the array and for each position, find the smallest element from the unsorted part of the array and swap it with the current position. This makes the algorithm deterministic with a time complexity of **O(n²)** in all cases.
+
+To introduce randomness into Selection Sort, we can randomly pick an element from the unsorted portion of the array instead of deterministically selecting the minimum element. This doesn't make the algorithm more efficient in terms of worst-case time complexity, but it serves as an example of how randomness can be incorporated into sorting algorithms.
+
+### Randomized Selection Sort Algorithm:
+
+1. **Step 1**: For each position in the array, randomly select an element from the unsorted part of the array.
+2. **Step 2**: Swap the randomly chosen element with the current element.
+3. **Step 3**: Continue until the entire array is sorted.
+
+### Pseudo Code:
+
+```cpp
+RandomizedSelectionSort(arr, n)
+    for i = 0 to n-1
+        // Randomly select an index from the unsorted portion
+        randIndex = Random(i, n-1)
+
+        // Swap the randomly chosen element with the current element
+        Swap(arr[i], arr[randIndex])
+
+        // Find the minimum element from the unsorted portion
+        minIndex = i
+        for j = i+1 to n-1
+            if arr[j] < arr[minIndex]
+                minIndex = j
+
+        // Swap the found minimum element with the current element
+        Swap(arr[i], Arr[minIndex])
+```
+
+### Explanation of Pseudo Code:
+
+1. **Outer Loop**: The outer loop runs from `i = 0` to `n-1`. At each iteration, we process one element from the array.
+2. **Random Selection**: A random index `randIndex` is selected from the unsorted part of the array (from `i` to `n-1`), and the element at that index is swapped with the current element at position `i`.
+3. **Finding the Minimum**: After the random swap, we then use the usual deterministic approach of selection sort to find the smallest element in the unsorted portion and swap it with the current element at index `i`.
+
+---
+
+<br>
+<div align='center'>
+  <a href='https://github.com/omteja04'>
+    <img src='https://img.shields.io/badge/GitHub-omteja04-181717?logo=github' alt='GitHub Profile'>
+  </a>
+</div>
