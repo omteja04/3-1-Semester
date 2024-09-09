@@ -1,4 +1,4 @@
-- [Explain different Criteria of an Algorithm and Discuss about the Time and Space Complexities. Discuss about the Amortized Analysis.](#explain-different-criteria-of-an-algorithm-and-discuss-about-the-time-and-space-complexities-discuss-about-the-amortized-analysis)
+- [1. Explain different Criteria of an Algorithm and Discuss about the Time and Space Complexities. Discuss about the Amortized Analysis.](#1-explain-different-criteria-of-an-algorithm-and-discuss-about-the-time-and-space-complexities-discuss-about-the-amortized-analysis)
   - [Criteria of an Algorithm](#criteria-of-an-algorithm)
   - [Performance Analysis of an Algorithm](#performance-analysis-of-an-algorithm)
     - [1. Time Complexity](#1-time-complexity)
@@ -6,14 +6,21 @@
   - [Amortized Analysis](#amortized-analysis)
     - [Key Types of Amortized Analysis:](#key-types-of-amortized-analysis)
     - [Example of Amortized Analysis: `Dynamic Array`](#example-of-amortized-analysis-dynamic-array)
-- [Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?](#write-about-the-pseudo-code-conventions-and-explain-about-different-asymptotic-notations-with-examples)
+- [2. Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?](#2-write-about-the-pseudo-code-conventions-and-explain-about-different-asymptotic-notations-with-examples)
   - [Pseudo Code Conventions](#pseudo-code-conventions)
   - [Asymptotic Notations (with Examples)](#asymptotic-notations-with-examples)
     - [1. Big O Notation (O):](#1-big-o-notation-o)
     - [2. Omega Notation (Ω):](#2-omega-notation-ω)
     - [3. Theta Notation (Θ):](#3-theta-notation-θ)
+- [3. Discuss about the Recursion and Design an algorithm to solve the towers of Hanoi problem.](#3-discuss-about-the-recursion-and-design-an-algorithm-to-solve-the-towers-of-hanoi-problem)
+  - [Recursion](#recursion)
+    - [Key characteristics of recursion:](#key-characteristics-of-recursion)
+  - [Tower of Hanoi Problem](#tower-of-hanoi-problem)
+    - [Rules](#rules)
+  - [Algorithm](#algorithm)
+  - [Pseudo Code](#pseudo-code)
 
-## Explain different Criteria of an Algorithm and Discuss about the Time and Space Complexities. Discuss about the Amortized Analysis.
+## 1. Explain different Criteria of an Algorithm and Discuss about the Time and Space Complexities. Discuss about the Amortized Analysis.
 
 ### Criteria of an Algorithm
 
@@ -71,7 +78,7 @@ Amortized analysis is a method used to analyze the average time complexity of an
 
 Inserting an element into a dynamic array takes constant time `O(1)` in most cases. However, when the array is full, it must be resized, which takes linear time `O(n)` where `n` is the current size of the array. By analyzing the cost of multiple insertions (accounting for resizing), the average cost (amortized) of an insertion remains `O(1)` despite the occasional expensive resizing operation.
 
-## Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?
+## 2. Write about the Pseudo Code Conventions? And Explain about different Asymptotic notations with examples?
 
 ### Pseudo Code Conventions
 
@@ -208,3 +215,59 @@ performance and scalability.
 
 ---
 
+## 3. Discuss about the Recursion and Design an algorithm to solve the towers of Hanoi problem.
+
+### Recursion
+
+**Recursion** is a programming technique where a function calls itself to solve smaller instances of the same problem. It is often used to break complex problems down into more manageable sub-problems, which are then solved in a repeated manner until a base condition is met.
+
+#### Key characteristics of recursion:
+
+**Base Case:** A condition that stops the recursion.
+**Recursive Case:** The part of the function where it calls itself with modified arguments to approach the base case.
+**Recursive Structure:** Each recursive call reduces the problem size, eventually converging on the base case.
+
+### Tower of Hanoi Problem
+
+The **Towers of Hanoi** is a classic recursive problem where you have three rods and `n` disks of different sizes, stacked in ascending order of size on one rod (source). The goal is to move the entire stack to another rod (destination), obeying the following rules:
+![](https://www.tutorialspoint.com/data_structures_algorithms/images/tower_of_hanoi.jpg)
+
+#### Rules
+
+1. Only one disk can be moved at a time.
+2. A disk can only be moved to the top of another rod.
+3. No larger disk can be placed on top of a smaller disk.
+
+### Algorithm
+
+The problem can be broken down as follows:
+
+- Move the top `n-1` disks from the source to the helper rod.
+- Move the nth (largest) disk from the source to the destination rod.
+- Move the `n-1` disks from the helper rod to the destination rod.
+
+This recursive structure allows us to solve the Towers of Hanoi problem for any number of disks.
+
+> Tower of Hanoi puzzle with n disks can be solved in minimum \(2^{(n−1)}\) steps.
+
+![](https://www.tutorialspoint.com/data_structures_algorithms/images/tower_of_hanoi.gif)
+
+### Pseudo Code
+
+```cpp
+
+Algorithm TowerOfHanoi(disk, source, destination, helper)
+
+  IF disk == 1, THEN
+  {
+    move disk from source to destination
+  }
+
+  ELSE
+  {
+    TowerOfHanoi(disk - 1, source, helper, destination)     // Step 1
+    move disk from source to destination          // Step 2
+    TowerOfHanoi(disk - 1, helper, destination, source)     // Step 3
+  }
+```
+---
