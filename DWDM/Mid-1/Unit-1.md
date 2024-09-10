@@ -237,7 +237,7 @@ In summary, OLTP is optimized for handling quick transactional tasks, while OLAP
 
 OLAP is a technology that enables users to analyze data from multiple database systems simultaneously using a multidimensional data model. It allows querying of data in multiple dimensions.
 **For Example:**
-![Latex](https://quicklatex.com/cache3/42/ql_ffb6d2720ba45e0e62fb40ed08c2a942_l3.png)
+![Latex](https://quicklatex.com/cache3/a0/ql_6a862fab04dad1e47261edab2453d4a0_l3.png)
 OLAP databases are structured into one or more multidimensional arrays known as hypercubes.
 
 ![](https://media.geeksforgeeks.org/wp-content/uploads/OLAPcube.jpg)
@@ -251,9 +251,10 @@ OLAP databases are structured into one or more multidimensional arrays known as 
      - Moving down in the concept hierarchy (e.g., from Quarter to Month).
      - Adding a new dimension to the analysis.
    - **Example**: Expanding sales data from quarterly to monthly details.
-     ![Drill-down](https://media.geeksforgeeks.org/wp-content/uploads/OLAPdrilldown.jpg)
 
-2. **Roll-up**
+![Drill-down](https://media.geeksforgeeks.org/wp-content/uploads/OLAPdrilldown.jpg)
+
+1. **Roll-up**
 
    - **Definition**: Aggregates detailed data to a higher, more summarized level.
    - **Methods**:
@@ -261,7 +262,7 @@ OLAP databases are structured into one or more multidimensional arrays known as 
      - Reducing the number of dimensions.
    - **Example**: Summarizing sales data from city-level to country-level.
 
-   ![Roll-Up](https://media.geeksforgeeks.org/wp-content/uploads/OLAProllup.jpg)
+![Roll-Up](https://media.geeksforgeeks.org/wp-content/uploads/OLAProllup.jpg)
 
 3. **Dice**
 
@@ -270,18 +271,21 @@ OLAP databases are structured into one or more multidimensional arrays known as 
      - Location is "Delhi" or "Kolkata"
      - Time is "Q1" or "Q2"
      - Item is "Car" or "Bus" to form a specific sub-cube.
-       ![Dice](https://media.geeksforgeeks.org/wp-content/uploads/OLAPdice.jpg)
+
+![Dice](https://media.geeksforgeeks.org/wp-content/uploads/OLAPdice.jpg)
 
 4. **Slice**
 
    - **Definition**: Extracts a single dimension from the OLAP cube to create a new sub-cube.
    - **Example**: Slicing the cube on Time = "Q1" to view data for the first quarter only.
-     ![Slice](https://media.geeksforgeeks.org/wp-content/uploads/OLAPslice.jpg)
+
+![Slice](https://media.geeksforgeeks.org/wp-content/uploads/OLAPslice.jpg)
 
 5. **Pivot (Rotation)**
    - **Definition**: Rotates the data cube to view it from a different perspective.
    - **Example**: After slicing the cube, pivoting can change the view from, for instance, a time-based perspective to a location-based perspective.
-     ![Pivot](https://media.geeksforgeeks.org/wp-content/uploads/OLAPpivot.jpg)
+
+![Pivot](https://media.geeksforgeeks.org/wp-content/uploads/OLAPpivot.jpg)
 
 These operations allow users to interact with and analyze multidimensional data effectively, providing various ways to view and interpret the data.
 
