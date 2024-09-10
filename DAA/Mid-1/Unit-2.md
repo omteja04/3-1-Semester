@@ -48,6 +48,10 @@
   - [General Control Abstraction for the Greedy Technique](#general-control-abstraction-for-the-greedy-technique)
   - [General Greedy Algorithm Pseudo code](#general-greedy-algorithm-pseudo-code)
   - [Optimal Solution for the Knapsack Problem](#optimal-solution-for-the-knapsack-problem)
+  - [Problem parameters:](#problem-parameters)
+  - [Step-by-step approach:](#step-by-step-approach)
+  - [Selected items:](#selected-items)
+  - [Final solution:](#final-solution)
   - [Summary](#summary)
 - [Discuss about the Minimum Cost Spanning tree? Explain how to find the minimum cost spanning tree by using Prim’s algorithm with your own example.](#discuss-about-the-minimum-cost-spanning-tree-explain-how-to-find-the-minimum-cost-spanning-tree-by-using-prims-algorithm-with-your-own-example)
   - [Minimum Cost Spanning Tree (MST)](#minimum-cost-spanning-tree-mst)
@@ -614,82 +618,52 @@ Algorithm Greedy (a, n) // a [1 .. n] contains the n inputs
 
 ### Optimal Solution for the Knapsack Problem
 
-For the given knapsack problem instance, we need to find the optimal solution using the greedy technique.
+To solve this knapsack instance using the **greedy approach** based on the **profit-to-weight ratio**, follow these steps:
 
-**Knapsack Problem Instance:**
+### Problem parameters:
 
-- **Number of items (n):** 7
-- **Capacity of the knapsack (M):** 15
-- **Values (p):** (10, 5, 15, 7, 6, 18, 3)
-- **Weights (w):** (2, 3, 5, 7, 1, 4, 1)
+- \( n = 7 \) (number of items)
+- \( M = 15 \) (maximum weight capacity of the knapsack)
+- Profits: \( (p1, p2, ..., p7) = (10, 5, 15, 7, 6, 18, 3) \)
+- Weights: \( (w1, w2, ..., w7) = (2, 3, 5, 7, 1, 4, 1) \)
 
-**Steps to Find the Optimal Solution Using the Greedy Technique:**
+### Step-by-step approach:
 
-1. **Compute Value-to-Weight Ratio:**
-   Calculate the value-to-weight ratio for each item. The ratio is given by \( \frac{p_i}{w_i} \).
+1. **Calculate the profit-to-weight ratio** for each item:
+   - \( r1 = \frac{10}{2} = 5.0 \)
+   - \( r2 = \frac{5}{3} \approx 1.67 \)
+   - \( r3 = \frac{15}{5} = 3.0 \)
+   - \( r4 = \frac{7}{7} = 1.0 \)
+   - \( r5 = \frac{6}{1} = 6.0 \)
+   - \( r6 = \frac{18}{4} = 4.5 \)
+   - \( r7 = \frac{3}{1} = 3.0 \)
 
-   - Item 1: \( \frac{10}{2} = 5 \)
-   - Item 2: \( \frac{5}{3} \approx 1.67 \)
-   - Item 3: \( \frac{15}{5} = 3 \)
-   - Item 4: \( \frac{7}{7} = 1 \)
-   - Item 5: \( \frac{6}{1} = 6 \)
-   - Item 6: \( \frac{18}{4} = 4.5 \)
-   - Item 7: \( \frac{3}{1} = 3 \)
+2. **Sort items by their profit-to-weight ratio** in descending order:
+   - Item 5: \( r5 = 6.0 \)
+   - Item 1: \( r1 = 5.0 \)
+   - Item 6: \( r6 = 4.5 \)
+   - Item 3: \( r3 = 3.0 \)
+   - Item 7: \( r7 = 3.0 \)
+   - Item 2: \( r2 = 1.67 \)
+   - Item 4: \( r4 = 1.0 \)
 
-2. **Sort Items by Value-to-Weight Ratio:**
-   Sort items in descending order of their value-to-weight ratio:
+3. **Greedily select items** while keeping track of the total weight until the knapsack is full:
+   - Select **Item 5** (weight = 1, profit = 6), remaining capacity = 15 - 1 = 14
+   - Select **Item 1** (weight = 2, profit = 10), remaining capacity = 14 - 2 = 12
+   - Select **Item 6** (weight = 4, profit = 18), remaining capacity = 12 - 4 = 8
+   - Select **Item 3** (weight = 5, profit = 15), remaining capacity = 8 - 5 = 3
+   - Select **Item 7** (weight = 1, profit = 3), remaining capacity = 3 - 1 = 2
 
-   1. Item 5 (6.0)
-   2. Item 6 (4.5)
-   3. Item 3 (3.0)
-   4. Item 7 (3.0)
-   5. Item 1 (5.0)
-   6. Item 2 (1.67)
-   7. Item 4 (1.0)
+4. **Stop** when no more items can be added without exceeding the capacity.
 
-3. **Greedy Selection:**
+### Selected items:
+- Items: 5, 1, 6, 3, 7
+- Total profit = \( 6 + 10 + 18 + 15 + 3 = 52 \)
+- Total weight = \( 1 + 2 + 4 + 5 + 1 = 13 \)
 
-   - Start with an empty knapsack and a remaining capacity of 15.
-   - Iteratively add items based on the sorted order until the knapsack is full or no more items can be added.
-
-   - **Add Item 5:** Weight = 1, Value = 6
-
-     - Remaining Capacity = 15 - 1 = 14
-     - Total Value = 6
-
-   - **Add Item 6:** Weight = 4, Value = 18
-
-     - Remaining Capacity = 14 - 4 = 10
-     - Total Value = 6 + 18 = 24
-
-   - **Add Item 3:** Weight = 5, Value = 15
-
-     - Remaining Capacity = 10 - 5 = 5
-     - Total Value = 24 + 15 = 39
-
-   - **Add Item 7:** Weight = 1, Value = 3
-
-     - Remaining Capacity = 5 - 1 = 4
-     - Total Value = 39 + 3 = 42
-
-   - **Add Item 1:** Weight = 2, Value = 10
-
-     - Remaining Capacity = 4 - 2 = 2
-     - Total Value = 42 + 10 = 52
-
-   - **Add Item 2:** Weight = 3, Value = 5
-
-     - Remaining Capacity = 2 - 3 = -1 (Not enough capacity)
-
-   - **Item 4:** Not added due to lack of capacity.
-
-**Optimal Solution:**
-
-- **Items Selected:** 5, 6, 3, 7, 1
-- **Total Value:** 52
-- **Total Weight:** 1 + 4 + 5 + 1 + 2 = 13
-- **Remaining Capacity:** 15 - 13 = 2
-
+### Final solution:
+- **Maximum profit** = 52
+- **Total weight** = 13 (within the capacity of 15)
 ### Summary
 
 The greedy approach provides a quick way to approximate a solution to the knapsack problem by maximizing the value-to-weight ratio. In this case, the optimal solution involves selecting items with the highest value-to-weight ratios until the knapsack’s capacity is reached or exceeded. The optimal value obtained is 52, with a total weight of 13.
