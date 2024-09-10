@@ -236,6 +236,7 @@ In summary, OLTP is optimized for handling quick transactional tasks, while OLAP
 ### OLAP (Online Analytical Processing)
 
 OLAP is a technology that enables users to analyze data from multiple database systems simultaneously using a multidimensional data model. It allows querying of data in multiple dimensions.
+
 **For Example:**
 
 ![Latex](https://latex.codecogs.com/png.image?\large&space;\dpi{110}[\text{Location:Delhi}\rightarrow\text{Year:2018}\rightarrow\text{Sales&space;Data}])
