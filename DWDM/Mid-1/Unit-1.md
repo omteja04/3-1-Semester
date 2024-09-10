@@ -237,9 +237,7 @@ In summary, OLTP is optimized for handling quick transactional tasks, while OLAP
 
 OLAP is a technology that enables users to analyze data from multiple database systems simultaneously using a multidimensional data model. It allows querying of data in multiple dimensions.
 **For Example:**
-\[
-\text{Location: Delhi} \rightarrow \text{Year: 2018} \rightarrow \text{Sales Data}
-\]
+![Latex](https://quicklatex.com/cache3/42/ql_ffb6d2720ba45e0e62fb40ed08c2a942_l3.png)
 OLAP databases are structured into one or more multidimensional arrays known as hypercubes.
 
 ![](https://media.geeksforgeeks.org/wp-content/uploads/OLAPcube.jpg)
