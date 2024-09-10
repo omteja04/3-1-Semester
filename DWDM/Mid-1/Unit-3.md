@@ -65,6 +65,8 @@
 - **Impact**: This phenomenon leads to data sparsity, increased computational complexity, and a higher likelihood of overfitting.
 - **Example**: When working with datasets that have hundreds of features, it becomes challenging to detect meaningful patterns due to the high-dimensional space.
 
+![CoD](https://i.ytimg.com/vi/b_Z3KQ-nhDY/maxresdefault.jpg)
+
 ### Overfitting and Underfitting
 
 - **Overfitting**:
@@ -77,6 +79,8 @@
   - **Definition**: Underfitting arises when a model is too simplistic to capture the underlying patterns in the data, leading to poor performance on both training and test datasets.
   - **Impact**: The model fails to capture the complexity of the data, resulting in inaccurate predictions.
   - **Example**: Applying linear regression to a dataset with non-linear relationships can lead to underfitting, as the linear model cannot accurately represent the data’s complexity.
+
+![OU](https://builtin.com/sites/www.builtin.com/files/styles/ckeditor_optimize/public/inline-images/national/Curse%2520of%2520Dimensionality%2520overfit%2520vs%2520underfit.png)
 
 ### Scalability Issues in Classification
 
