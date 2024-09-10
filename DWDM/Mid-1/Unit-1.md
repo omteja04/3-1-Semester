@@ -239,7 +239,7 @@ OLAP is a technology that enables users to analyze data from multiple database s
 
 **For Example:**
 
-![Latex](https://latex.codecogs.com/png.image?\large&space;\dpi{110}[\text{Location:Delhi}\rightarrow\text{Year:2018}\rightarrow\text{Sales&space;Data}])
+![Latex](https://latex.codecogs.com/png.image?\large&space;\dpi{110}\bg{white}\[\text{Location:Delhi}\rightarrow\text{Year:2018}\rightarrow\text{Sales&space;Data}\])
 
 OLAP databases are structured into one or more multidimensional arrays known as hypercubes.
 
