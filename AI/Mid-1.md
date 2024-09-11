@@ -235,7 +235,7 @@ In the crypto-arithmetic puzzle "SEND + MORE = MONEY", each letter represents a 
 
 ## Solve the given propositional calculus expressions are equivalent or not (P->Q->R) AND (P->Q ^ Q->R)
 
-*Do It By Your self*🙂
+*Do It By Your self* 🙂
 
 ---
 
