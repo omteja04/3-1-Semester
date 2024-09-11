@@ -4,25 +4,6 @@
   Description: Mid-1
 -->
 
-- [Define Artificial intelligence? Explain the applications of artificial intelligence in detail](#define-artificial-intelligence-explain-the-applications-of-artificial-intelligence-in-detail)
-  - [Definition](#definition)
-  - [Applications](#applications)
-- [Briefly Explain the history of Artificial Intelligence.](#briefly-explain-the-history-of-artificial-intelligence)
-- [Explain various Blind Search Strategies in Artificial Intelligence](#explain-various-blind-search-strategies-in-artificial-intelligence)
-  - [Depth-First Search (DFS)](#depth-first-search-dfs)
-  - [Breadth-First Search (BFS)](#breadth-first-search-bfs)
-  - [Iterative Deepening Depth-First Search (IDDFS)](#iterative-deepening-depth-first-search-iddfs)
-  - [Bidirectional Search](#bidirectional-search)
-  - [Uniform-Cost Search (UCS)](#uniform-cost-search-ucs)
-  - [Applications of Uninformed Search Strategies](#applications-of-uninformed-search-strategies)
-  - [Advantages](#advantages)
-  - [Disadvantages of Uninformed Search](#disadvantages-of-uninformed-search)
-  - [Real-World Examples](#real-world-examples)
-- [Explain Constraint Satisfaction Problem and Solve a Crypto-Arithmetic puzzle (SEND + MORE = MONEY) show the steps involved in finding solution.](#explain-constraint-satisfaction-problem-and-solve-a-crypto-arithmetic-puzzle-send--more--money-show-the-steps-involved-in-finding-solution)
-  - [Constraint Satisfaction Problem (CSP)](#constraint-satisfaction-problem-csp)
-  - [Crypto-Arithmetic Puzzle: SEND + MORE = MONEY](#crypto-arithmetic-puzzle-send--more--money)
-- [Solve the given propositional calculus expressions are equivalent or not (P-\>Q-\>R) AND (P-\>Q ^ Q-\>R)](#solve-the-given-propositional-calculus-expressions-are-equivalent-or-not-p-q-r-and-p-q--q-r)
-- [Prove the theorem infer \[(A-\>B) ^ (B-\>C)\]-\> (A-\>C) using NDS](#prove-the-theorem-infer-a-b--b-c--a-c-using-nds)
 
 ## Define Artificial intelligence? Explain the applications of artificial intelligence in detail
 
