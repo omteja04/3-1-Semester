@@ -217,7 +217,7 @@ There are the seven OSI layers. Each layer has different functions. A list of se
 
 ![network](https://static.javatpoint.com/tutorial/computer-network/images/osi-model6.png)
 
-- The Data link layer is responsible for routing and forwarding the packets.
+- The Network layer is responsible for routing and forwarding the packets.
 - It determines the best path to move data from source to the destination based on the network conditions, the priority of service, and other factors.
 - The protocols used to route the network traffic are known as Network layer protocols. Examples of protocols are IPv4 and IPv6.
 - **Functions**: Inter-networking, Addressing, Routing, Packetizing
