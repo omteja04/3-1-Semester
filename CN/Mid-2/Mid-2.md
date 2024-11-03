@@ -27,6 +27,35 @@
     - [How Hierarchical Routing Works](#how-hierarchical-routing-works)
     - [Advantages of Hierarchical Routing](#advantages-of-hierarchical-routing)
     - [Limitations of Hierarchical Routing](#limitations-of-hierarchical-routing)
+  - [Explain standard Ethernet (IEEE 802.3)](#explain-standard-ethernet-ieee-8023)
+    - [1. Frame Format](#1-frame-format)
+      - [Summary of Frame Format](#summary-of-frame-format)
+    - [2. Transmission Speed](#2-transmission-speed)
+    - [3. Media Access Control (MAC)](#3-media-access-control-mac)
+    - [4. Physical Layer Specifications](#4-physical-layer-specifications)
+    - [5. Network Topology](#5-network-topology)
+    - [6. Full Duplex and Switching](#6-full-duplex-and-switching)
+    - [7. IEEE 802.3 Standards Variants](#7-ieee-8023-standards-variants)
+    - [Summary](#summary)
+  - [Explain TCP Connection management Finite State Machine. Explain all states in it.](#explain-tcp-connection-management-finite-state-machine-explain-all-states-in-it)
+    - [TCP Connection Management States](#tcp-connection-management-states)
+      - [1. **CLOSED**](#1-closed)
+      - [2. **LISTEN**](#2-listen)
+      - [3. **SYN-SENT**](#3-syn-sent)
+      - [4. **SYN-RCVD**](#4-syn-rcvd)
+      - [5. **ESTABLISHED**](#5-established)
+      - [6. **FIN-WAIT-1**](#6-fin-wait-1)
+      - [7. **FIN-WAIT-2**](#7-fin-wait-2)
+      - [8. **TIME-WAIT**](#8-time-wait)
+      - [9. **CLOSE-WAIT**](#9-close-wait)
+      - [10. **LAST-ACK**](#10-last-ack)
+    - [Summary of State Transitions](#summary-of-state-transitions)
+    - [Conclusion](#conclusion)
+  - [Explain the structure of TCP Header format.](#explain-the-structure-of-tcp-header-format)
+    - [TCP Header Format](#tcp-header-format)
+    - [Field Descriptions](#field-descriptions)
+    - [Conclusion](#conclusion-1)
+  - [What are the five basic functions supported in e-mail systems? Explain.](#what-are-the-five-basic-functions-supported-in-e-mail-systems-explain)
 
 # Mid 2
 
@@ -34,19 +63,20 @@
 
 Virtual circuit and datagram networks are two fundamental approaches to packet-switched networking, and they differ primarily in how they establish connections and handle data transmission.
 
-| Feature                 | Virtual Circuit Network                                                                                  | Datagram Network                                                                                        |
+![VC-DN](https://d2slyrdc8sel4f.cloudfront.net/article_pictures/BART168.jpg)
+| Feature | Virtual Circuit Network | Datagram Network |
 | ----------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **Connection Type**     | Connection-oriented                                                                                      | Connectionless                                                                                          |
-| **Setup Phase**         | Required (establishes a route)                                                                           | Not required                                                                                            |
-| **Path Consistency**    | Fixed path for all packets                                                                               | Variable paths per packet                                                                               |
-| **Delay**               | **Lower delay** after setup, as the path is predefined                                                   | **Potentially higher delay** due to route calculation for each packet                                   |
-| **Order**               | Maintains **packet order**, as all packets follow the same path                                          | **Packets may arrive out of order**, since they may follow different paths                              |
-| **Cost**                | Typically **higher setup cost** due to connection establishment and resource reservation                 | **Lower cost** due to the absence of a connection setup phase                                           |
-| **Packet Loss**         | **Less prone to packet loss** due to resource reservation and fixed path                                 | **Higher chance of packet loss**, as no resources are reserved                                          |
-| **Overhead**            | **Higher overhead initially** due to setup requirements; once established, **lower per-packet overhead** | **Lower initial overhead** but **higher per-packet overhead** due to routing information in each packet |
-| **Reliability**         | More reliable, suitable for applications requiring consistent data delivery                              | Less reliable, but scalable and suitable for dynamic data traffic                                       |
-| **Resource Allocation** | Resources are reserved, which can ensure quality of service (QoS)                                        | No reserved resources; relies on best-effort delivery                                                   |
-| **Example Protocols**   | ATM (Asynchronous Transfer Mode), MPLS, Frame Relay                                                      | IP, UDP                                                                                                 |
+| **Connection Type** | Connection-oriented | Connectionless |
+| **Setup Phase** | Required (establishes a route) | Not required |
+| **Path Consistency** | Fixed path for all packets | Variable paths per packet |
+| **Delay** | **Lower delay** after setup, as the path is predefined | **Potentially higher delay** due to route calculation for each packet |
+| **Order** | Maintains **packet order**, as all packets follow the same path | **Packets may arrive out of order**, since they may follow different paths |
+| **Cost** | Typically **higher setup cost** due to connection establishment and resource reservation | **Lower cost** due to the absence of a connection setup phase |
+| **Packet Loss** | **Less prone to packet loss** due to resource reservation and fixed path | **Higher chance of packet loss**, as no resources are reserved |
+| **Overhead** | **Higher overhead initially** due to setup requirements; once established, **lower per-packet overhead** | **Lower initial overhead** but **higher per-packet overhead** due to routing information in each packet |
+| **Reliability** | More reliable, suitable for applications requiring consistent data delivery | Less reliable, but scalable and suitable for dynamic data traffic |
+| **Resource Allocation** | Resources are reserved, which can ensure quality of service (QoS) | No reserved resources; relies on best-effort delivery |
+| **Example Protocols** | ATM (Asynchronous Transfer Mode), MPLS, Frame Relay | IP, UDP |
 
 **Summary**:
 
@@ -251,7 +281,264 @@ For example, in a three-level hierarchy:
 
 ---
 
+## Explain standard Ethernet (IEEE 802.3)
 
+![IEEE](https://www.tutorialspoint.com/assets/questions/media/23567/ieee_802_frame.jpg)
+
+Standard Ethernet, defined by the IEEE 802.3 specification, is a widely adopted technology for local area networks (LANs). It specifies the physical and data link layers of the OSI model, enabling devices on a network to communicate over shared media. Key aspects of IEEE 802.3 Ethernet include:
+
+### 1. Frame Format
+
+- Ethernet transmits data in packets known as frames, which contain fields like:
+
+  1. **Preamble (7 bytes)**: A sequence of alternating 1s and 0s (typically 56 bits) used for synchronization to allow the receiver to lock onto the incoming signal.
+
+  2. **Start of Frame (SOF) (1 byte)**: A specific bit pattern (usually `10101011`) that signifies the start of the actual frame data. It follows the preamble and indicates to the receiving device that a frame is about to begin.
+
+  3. **Destination MAC Address (6 bytes)**: The hardware address of the receiving device.
+
+  4. **Source MAC Address (6 bytes)**: The hardware address of the sending device.
+
+  5. **Type/Length Field (2 bytes)**: Indicates the type of the payload (e.g., IPv4, IPv6) or the length of the data in the frame.
+
+  6. **Data Payload (46 to 1500 bytes)**: The actual data being transmitted, with a minimum length of 46 bytes and a maximum length of 1500 bytes. If the data is less than 46 bytes, padding is added.
+
+  7. **Frame Check Sequence (FCS) (4 bytes)**: A cyclic redundancy check (CRC) value for error checking. It allows the receiving device to verify the integrity of the received frame.
+
+#### Summary of Frame Format
+
+| Field                      | Length           | Description                                     |
+| -------------------------- | ---------------- | ----------------------------------------------- |
+| Preamble                   | 7 bytes          | Synchronization bits                            |
+| Start of Frame (SOF)       | 1 byte           | Indicates the start of the frame                |
+| Destination MAC Address    | 6 bytes          | Address of the receiving device                 |
+| Source MAC Address         | 6 bytes          | Address of the sending device                   |
+| Type/Length Field          | 2 bytes          | Indicates the type of payload or length of data |
+| Data Payload               | 46 to 1500 bytes | Actual data being transmitted                   |
+| Frame Check Sequence (FCS) | 4 bytes          | Error checking code                             |
+
+### 2. Transmission Speed
+
+- Standard Ethernet (IEEE 802.3) has evolved to support various speeds:
+  - **10 Mbps** (original Ethernet)
+  - **100 Mbps** (Fast Ethernet, IEEE 802.3u)
+  - **1 Gbps** (Gigabit Ethernet, IEEE 802.3ab for copper, IEEE 802.3z for fiber)
+  - **10 Gbps and beyond** (IEEE 802.3ae and successive standards)
+
+### 3. Media Access Control (MAC)
+
+- Ethernet uses **Carrier Sense Multiple Access with Collision Detection (CSMA/CD)** to manage access to the shared media:
+
+  - **Carrier Sense (CS)**: A device listens to the network to detect if it's free to send data.
+  - **Multiple Access (MA)**: Multiple devices can use the network simultaneously.
+  - **Collision Detection (CD)**: If two devices send data simultaneously, a collision occurs, and both devices stop, wait for a random backoff time, and retry.
+
+- CSMA/CD is essential in half-duplex Ethernet. In modern full-duplex Ethernet, collision detection is unnecessary as devices have dedicated communication paths.
+
+### 4. Physical Layer Specifications
+
+- Ethernet can operate over different types of cables, including:
+  - **Twisted Pair (Cat5, Cat6)** for Fast and Gigabit Ethernet.
+  - **Fiber Optic Cables** for longer-distance and high-speed (Gigabit and beyond) transmissions.
+  - **Coaxial Cable** (historical use in early Ethernet networks).
+
+### 5. Network Topology
+
+- Ethernet typically uses **star topology** with a switch at the center, though **bus topology** was used in early Ethernet (10BASE5 and 10BASE2) with coaxial cable.
+- Switches help to manage network traffic efficiently, reducing collisions in modern Ethernet networks.
+
+### 6. Full Duplex and Switching
+
+- Full-duplex Ethernet, enabled by modern switches, allows simultaneous sending and receiving of data, effectively doubling the network capacity and eliminating collisions.
+- Switches improve network performance by forwarding frames only to the intended recipient.
+
+### 7. IEEE 802.3 Standards Variants
+
+- Over time, IEEE 802.3 has expanded to include various specifications for different speeds and media, like:
+  - **802.3u** (100BASE-T for Fast Ethernet)
+  - **802.3ab** (1000BASE-T for Gigabit Ethernet on twisted pair)
+  - **802.3ae** (10GBASE for 10 Gigabit Ethernet)
+  - **802.3by** (25GBASE-T for 25 Gigabit Ethernet)
+  - **802.3bs** (400 Gigabit Ethernet for large-scale, high-speed data centers)
+
+### Summary
+
+Standard Ethernet (IEEE 802.3) is a reliable, scalable networking technology used in various environments, from small office networks to large-scale data centers, thanks to its adaptable speeds, topologies, and cabling options.
+
+---
+
+## Explain TCP Connection management Finite State Machine. Explain all states in it.
+
+<!-- ![TCP](https://networkinterview.com/wp-content/uploads/2022/06/11-STATES-OF-TCP.jpg.webp) -->
+
+![TCP](http://tcpipguide.com/free/diagrams/tcpfsm.png)
+
+TCP (Transmission Control Protocol) connection management is governed by a finite state machine (FSM) that defines the various states a TCP connection can be in and the transitions between these states. The FSM ensures reliable data transmission and orderly connection establishment and termination.
+
+### TCP Connection Management States
+
+The TCP connection management FSM has several states, primarily focused on connection establishment and termination. Here are the key states and their functions:
+
+#### 1. **CLOSED**
+
+- **Description**: The default state when no connection exists.
+- **Transitions**:
+  - **To LISTEN**: A server process can enter this state to wait for incoming connections (using `listen()`).
+  - **To SYN-SENT**: A client can initiate a connection by sending a SYN packet.
+
+#### 2. **LISTEN**
+
+- **Description**: The server is waiting for a connection request from a client.
+- **Transitions**:
+  - **To SYN-RCVD**: When a SYN packet is received from a client, the server responds with a SYN-ACK.
+
+#### 3. **SYN-SENT**
+
+- **Description**: The client has sent a SYN packet and is waiting for a matching SYN-ACK from the server.
+- **Transitions**:
+  - **To ESTABLISHED**: If the SYN-ACK is received, the client sends an ACK to complete the handshake.
+  - **To CLOSED**: If the SYN-ACK is not received within a timeout period, the client can retransmit the SYN or close the connection.
+
+#### 4. **SYN-RCVD**
+
+- **Description**: The server has received a SYN packet and sent back a SYN-ACK, waiting for the final ACK from the client.
+- **Transitions**:
+  - **To ESTABLISHED**: If the ACK is received from the client, the connection is established.
+  - **To CLOSED**: If no ACK is received after a timeout, the server can go back to the CLOSED state.
+
+#### 5. **ESTABLISHED**
+
+- **Description**: The connection is fully established, and data can be sent in both directions.
+- **Transitions**:
+  - **To FIN-WAIT-1**: If either side wants to terminate the connection, it sends a FIN packet.
+
+#### 6. **FIN-WAIT-1**
+
+- **Description**: The endpoint has sent a FIN packet and is waiting for an ACK from the other side.
+- **Transitions**:
+  - **To FIN-WAIT-2**: If the ACK for the FIN is received, the endpoint waits for a FIN from the other side.
+  - **To CLOSED**: If a RST (reset) packet is received, the connection is terminated immediately.
+
+#### 7. **FIN-WAIT-2**
+
+- **Description**: The endpoint has received an ACK for its FIN and is waiting for a FIN from the other side.
+- **Transitions**:
+  - **To TIME-WAIT**: If a FIN packet is received from the other side, the endpoint responds with an ACK and enters the TIME-WAIT state.
+
+#### 8. **TIME-WAIT**
+
+- **Description**: This state ensures that the connection is fully terminated and allows for any delayed packets to be properly handled.
+- **Duration**: Typically lasts for twice the maximum segment lifetime (MSL) to ensure that any duplicate packets are not mistakenly considered part of a new connection.
+- **Transitions**:
+  - **To CLOSED**: After the timer expires, the state transitions to CLOSED, completing the connection termination process.
+
+#### 9. **CLOSE-WAIT**
+
+- **Description**: The endpoint has received a FIN from the other side and is waiting for the application to close the connection.
+- **Transitions**:
+  - **To LAST-ACK**: When the application closes the connection, the endpoint sends a FIN.
+
+#### 10. **LAST-ACK**
+
+- **Description**: The endpoint is waiting for an ACK after sending a FIN packet.
+- **Transitions**:
+  - **To CLOSED**: If the ACK for the FIN is received, the connection is fully closed.
+
+### Summary of State Transitions
+
+Here's a simplified view of the transitions between these states:
+
+- **CLOSED** ↔ **LISTEN**: Server ready to accept connections.
+- **SYN-SENT** ↔ **SYN-RCVD**: Connection initiation between client and server.
+- **ESTABLISHED**: Active data transfer.
+- **FIN-WAIT-1** → **FIN-WAIT-2** → **TIME-WAIT** → **CLOSED**: Connection termination process.
+
+### Conclusion
+
+The TCP connection management FSM provides a robust framework for establishing, maintaining, and terminating connections, ensuring reliable data transmission and orderly state transitions. Understanding these states and transitions is crucial for developers and network engineers working with TCP/IP networks.
+
+---
+
+## Explain the structure of TCP Header format.
+
+The TCP (Transmission Control Protocol) header is a crucial part of TCP communications, containing important information required for the reliable transmission of data over networks. Here’s a detailed explanation of the structure of the TCP header format.
+
+### TCP Header Format
+
+The TCP header consists of a fixed-length part (20 bytes) and an optional variable-length part (TCP options), making the total size of the TCP header between 20 bytes (no options) and 60 bytes (with options).
+
+![Header](https://media.geeksforgeeks.org/wp-content/uploads/TCPSegmentHeader-1.png)
+
+### Field Descriptions
+
+1. **Source Port**: This field specifies the port number of the sending application. It allows the receiving application to know which application to send data to.
+
+2. **Destination Port**: This field specifies the port number of the receiving application, similar to the source port.
+
+3. **Sequence Number**: This is crucial for tracking the order of segments. It identifies the position of the first byte of data in the segment. If the SYN flag is set, this field contains the initial sequence number.
+
+4. **Acknowledgment Number**: This field is used to acknowledge receipt of data. It indicates the next sequence number the sender of the segment is expecting to receive.
+
+5. **HLEN (Header Length)**: This field indicates the size of the TCP header in 32-bit words. It tells the receiving side where the data starts in the segment.
+
+6. **Reserved**: This field is reserved for future use and should be set to zero.
+
+7. **Flags (Control Bits)**: These flags control the state and behavior of the TCP connection. They help manage the connection establishment, maintenance, and termination processes.
+   - **URG**: Urgent pointer field significant
+   - **ACK**: Acknowledgment field significant
+   - **PSH**: Push Function
+   - **RST**: Reset the connection
+   - **SYN**: Synchronize sequence numbers (used in connection establishment)
+   - **FIN**: No more data from the sender (used for connection termination) |
+8. **Window Size**: This field indicates the size of the sender's receive window, providing flow control by allowing the sender to know how much data can be sent before waiting for an acknowledgment.
+
+9. **Checksum**: A crucial field for ensuring data integrity, the checksum covers the entire TCP segment (header and data) to detect errors that may have occurred during transmission.
+
+10. **Urgent Pointer**: Used if the URG flag is set; it points to the sequence number indicating the end of urgent data within the segment.
+
+11. **Options**: The options field can include various optional parameters that enhance TCP's functionality, such as maximum segment size or timestamp.
+
+12. **Padding**: This ensures the TCP header aligns to a 32-bit boundary, which is required for processing efficiency.
+
+### Conclusion
+
+The TCP header format is designed to provide the necessary control and information for reliable data transmission. Understanding this structure is fundamental for anyone working with networking protocols, as it underpins how TCP facilitates reliable, ordered communication across IP networks.
+
+---
+
+## What are the five basic functions supported in e-mail systems? Explain.
+
+Email systems support several key functions that facilitate the effective sending, receiving, and
+management of electronic messages. Here are the five basic functions:
+
+```mermaid
+mindmap
+    Key Functions of Email Systems
+      Message Composition
+      Message Transfer
+      Message Reporting
+      Message Display
+      Message Disposition
+```
+
+1. **Message Composition**
+
+   - Users create and prepare messages by typing content, adding recipients’ email addresses, setting a subject line, and attaching files. Many email clients provide rich text formatting options, signatures, and templates to streamline this process. Security measures like encryption and digital signatures can also be employed for safe communication.
+
+2. **Message Transfer**
+
+   - Once a message is composed, it is sent to the recipient's server using the Simple Mail Transfer Protocol (SMTP). SMTP handles the outgoing mail process, managing message queues, ensuring reliable delivery, and retrying in case of temporary failures. It confirms successful transfers, ensuring that the email reaches its destination.
+
+3. **Message Reporting**
+
+   - Reporting provides feedback on the status of sent messages. Users may receive delivery confirmations for successfully delivered emails or bounce-back messages if delivery fails (e.g., due to an incorrect address). Some systems offer read receipts to inform senders when their messages are opened, helping users track communication success.
+
+4. **Message Display**
+
+   - Upon reaching the recipient’s server, the email client displays messages in an organized manner. Emails are categorized into folders (Inbox, Sent, Spam) and equipped with tools for reading, replying, and organizing. Advanced features such as threading and search functions help users efficiently manage and retrieve conversations, while spam filters enhance usability by prioritizing relevant emails.
+
+5. **Message Disposition**
+   - This function focuses on the long-term management of emails. Users can store, forward, delete, archive, or categorize messages for better organization. Features such as folders, filters, and labels help automate organization, while some systems offer auto-deletion options for spam or old emails to optimize storage and maintain a manageable inbox.
 
 <br>
 <div align='center'>
