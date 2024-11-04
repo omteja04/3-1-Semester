@@ -20,7 +20,12 @@
     - [Solving TSP with a Cost Adjacency Matrix](#solving-tsp-with-a-cost-adjacency-matrix)
     - [Solution](#solution)
     - [Finding the Optimal Tour](#finding-the-optimal-tour)
-  - [Explain the problem of Multistage Graph and find the shortest path and its cost for the given multistage graph](#explain-the-problem-of-multistage-graph-and-find-the-shortest-path-and-its-cost-for-the--given-multistage-graph)
+  - [Explain the problem of Multistage Graph and find the shortest path and its cost for the given multistage graph](#explain-the-problem-of-multistage-graph-and-find-the-shortest-path-and-its-cost-for-the-given-multistage-graph)
+    - [Problem of Multistage Graph](#problem-of-multistage-graph)
+      - [Characteristics of Multistage Graphs:](#characteristics-of-multistage-graphs)
+    - [Finding the Shortest Path and Its Cost](#finding-the-shortest-path-and-its-cost)
+    - [Problem Definition](#problem-definition-1)
+    - [Dynamic Programming Formulation](#dynamic-programming-formulation)
 
 # Mid-2
 
@@ -55,61 +60,73 @@ We cannot discard State C as it has a different weight. If more items are consid
 
 Given:
 
-- `n = 3` (3 items)
-- Maximum capacity `m = 6`
-- Profits `p1, p2, p3 = 1, 2, 5`
-- Weights `w1, w2, w3 = 2, 3, 4`
+- \( n = 3 \) (3 items)
+- Maximum capacity \( m = 6 \)
+- Profits \( p_1, p_2, p_3 = 1, 2, 5 \)
+- Weights \( w_1, w_2, w_3 = 2, 3, 4 \)
 
 #### Step 1: Define the DP Array
 
-Let `dp[i][j]` represent the maximum profit that can be obtained with the first `i` items and a knapsack capacity `j`.
+Let \( dp[i][j] \) represent the maximum profit that can be obtained with the first \( i \) items and a knapsack capacity \( j \).
 
 #### Step 2: Initialization
 
-- `dp[0][j] = 0` for all `j`, representing the case with zero items.
-- `dp[i][0] = 0` for all `i`, representing the case with zero capacity.
+- \( dp[0][j] = 0 \) for all \( j \), representing the case with zero items.
+- \( dp[i][0] = 0 \) for all \( i \), representing the case with zero capacity.
 
 #### Step 3: DP Transition
 
-For each item `i` and each capacity `j`, we have two options:
+For each item \( i \) and each capacity \( j \), we have two options:
 
-1. **Exclude the item `i`**: `dp[i][j] = dp[i-1][j]`
-2. **Include the item `i`** (if `w_i <= j`): `dp[i][j] = dp[i-1][j - w_i] + p_i`
+1. **Exclude the item \( i \)**: 
+   \[
+   dp[i][j] = dp[i-1][j]
+   \]
+
+2. **Include the item \( i \)** (if \( w_i \leq j \)):
+   \[
+   dp[i][j] = dp[i-1][j - w_i] + p_i
+   \]
 
 We select the option that gives the maximum profit:
-
-```
-dp[i][j] = max(dp[i-1][j], dp[i-1][j - w_i] + p_i) if w_i <= j
-```
+\[
+dp[i][j] = \max(dp[i-1][j], dp[i-1][j - w_i] + p_i) \quad \text{if } w_i \leq j
+\]
 
 #### Step 4: Fill the DP Table
 
-Let's fill in the table based on the provided values.
+Let’s fill in the table based on the provided values.
 
-| Item `i` | Weight `w_i` | Profit `p_i` |
-| -------- | ------------ | ------------ |
-| 1        | 2            | 1            |
-| 2        | 3            | 2            |
-| 3        | 4            | 5            |
+| Item \( i \) | Weight \( w_i \) | Profit \( p_i \) |
+| ------------ | ---------------- | ---------------- |
+| 1            | 2                | 1                |
+| 2            | 3                | 2                |
+| 3            | 4                | 5                |
 
 **DP Table** (rows represent items and columns represent capacities):
 
-| i \ j | 0   | 1   | 2   | 3   | 4   | 5   | 6   |
-| ----- | --- | --- | --- | --- | --- | --- | --- |
-| 0     | 0   | 0   | 0   | 0   | 0   | 0   | 0   |
-| 1     | 0   | 0   | 1   | 1   | 1   | 1   | 1   |
-| 2     | 0   | 0   | 1   | 2   | 2   | 3   | 3   |
-| 3     | 0   | 0   | 1   | 2   | 5   | 5   | 6   |
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+i \backslash j & 0   & 1   & 2   & 3   & 4   & 5   & 6   \\
+\hline
+0             & 0   & 0   & 0   & 0   & 0   & 0   & 0   \\
+1             & 0   & 0   & 1   & 1   & 1   & 1   & 1   \\
+2             & 0   & 0   & 1   & 2   & 2   & 3   & 3   \\
+3             & 0   & 0   & 1   & 2   & 5   & 5   & 6   \\
+\hline
+\end{array}
+\]
 
 #### Step 5: Obtain the Optimal Solution
 
-The value in `dp[3][6] = 6` is the maximum profit obtainable with a knapsack capacity of 6 and the given items.
+The value in \( dp[3][6] = 6 \) is the maximum profit obtainable with a knapsack capacity of 6 and the given items.
 
 #### Explanation
 
-1. For capacity `j = 6` and item set `(p1, p2, p3)`:
+1. For capacity \( j = 6 \) and item set \( (p_1, p_2, p_3) \):
    - By including item 3 (weight = 4, profit = 5), we achieve a profit of 6 when combined with item 1 (weight = 2, profit = 1).
-2. Items chosen are item 1 and item 3, giving a total weight of `2 + 4 = 6` and a total profit of `1 + 5 = 6`.
+2. Items chosen are item 1 and item 3, giving a total weight of \( 2 + 4 = 6 \) and a total profit of \( 1 + 5 = 6 \).
 
 Thus, the optimal solution yields a maximum profit of **6** with the given capacity of the knapsack.
 
@@ -123,28 +140,35 @@ The **Travelling Salesperson Problem (TSP)** is a classic optimization problem i
 
 Given:
 
-- A set of `n` cities and the travel cost between each pair of cities.
+- A set of \( n \) cities and the travel cost between each pair of cities.
 - The goal is to determine the shortest possible route that:
   - Visits each city exactly once.
   - Returns to the starting city.
 
-In the TSP, a common approach is to represent the travel costs between cities as an **adjacency matrix**, where the entry `cost[i][j]` represents the travel cost from city `i` to city `j`. The challenge is to find the path with the minimum total cost.
+In the TSP, a common approach is to represent the travel costs between cities as an **adjacency matrix**, where the entry \( \text{cost}[i][j] \) represents the travel cost from city \( i \) to city \( j \). The challenge is to find the path with the minimum total cost.
 
 ### Solving TSP with a Cost Adjacency Matrix
 
 Let’s solve the TSP for the given graph using the **Cost Adjacency Matrix**:
 
-|     |     |     |     |
-| --- | --- | --- | --- |
-| 0   | 10  | 15  | 20  |
-| 5   | 0   | 9   | 10  |
-| 6   | 13  | 0   | 12  |
-| 8   | 8   | 9   | 0   |
+\[
+\begin{array}{|c|c|c|c|c|}
+\hline
+     & 1   & 2   & 3   & 4   \\
+\hline
+1    & 0   & 10  & 15  & 20  \\
+2    & 5   & 0   & 9   & 10  \\
+3    & 6   & 13  & 0   & 12  \\
+4    & 8   & 8   & 9   & 0   \\
+\hline
+\end{array}
+\]
 
 Here:
 
 - There are 4 cities (labeled `1`, `2`, `3`, `4`).
-- The entry at `matrix[i][j]` gives the travel cost from city `i` to city `j`.
+- The entry at \text{matrix}[i][j] gives the travel cost from city \( i \) to city \( j \).
+
 
 ### Solution
 
@@ -165,6 +189,56 @@ After calculating the costs for each tour, we identify the tour with the minimum
 ---
 
 ## Explain the problem of Multistage Graph and find the shortest path and its cost for the given multistage graph
+
+### Problem of Multistage Graph
+
+A **multistage graph** is a directed graph that consists of multiple stages where vertices represent nodes in each stage. The main objective is to find the shortest path from a source vertex (start node) in the first stage to a destination vertex (end node) in the last stage, possibly passing through several intermediate stages.
+
+#### Characteristics of Multistage Graphs:
+
+1. **Stages**: The graph is divided into several stages. Each stage has a set of vertices, and there are edges connecting vertices from one stage to vertices in the next stage.
+2. **Directed Edges**: The edges have a direction, meaning you can only move from one vertex to another in the specified direction.
+3. **Costs**: Each edge has an associated cost, which can represent distance, time, or any other metric.
+
+### Finding the Shortest Path and Its Cost
+
+To find the shortest path in a multistage graph, we can use **Dynamic Programming**. Here's how to approach the problem:
+To formulate the dynamic programming approach for a \( k \)-stage graph problem, let's consider the definitions and recursive relationships required to derive the minimum cost paths from a source vertex \( s \) to a target vertex \( t \).
+
+### Problem Definition
+
+1. **Graph Structure**: 
+   - The graph is divided into \( k \) stages. Each stage \( V_i \) contains a set of vertices. The path starts at the source vertex in stage 1 and ends at the target vertex in stage \( k \).
+   - The vertices in the graph are denoted as \( V_1, V_2, \ldots, V_k \), where \( V_1 \) is the set of vertices reachable from the source \( s \) and \( V_k \) contains the target vertex \( t \).
+
+2. **Decision Making**:
+   - The goal is to make a sequence of decisions about which vertex to choose at each stage \( i \) (where \( 1 \leq i \leq k-2 \)) to minimize the total path cost to the target vertex \( t \).
+
+### Dynamic Programming Formulation
+
+1. **State Definition**:
+   - Let \( p(i, j) \) represent the minimum cost to reach the vertex \( j \) in stage \( i \) from the source \( s \). 
+
+2. **Base Case**:
+   - For the first stage:
+     \[
+     p(1, j) = \text{cost}(s, j) \quad \text{for all } j \in V_1
+     \]
+   - This means the cost to reach any vertex in stage 1 is simply the cost of the edge connecting the source \( s \) to that vertex.
+
+3. **Recursive Relation**:
+   - For subsequent stages, the cost to reach a vertex \( j \) in stage \( i \) can be computed as:
+     \[
+     p(i, j) = \min_{k \in V_{i-1}} \left( p(i-1, k) + \text{cost}(k, j) \right)
+     \]
+   - This relation indicates that the minimum cost \( p(i, j) \) is obtained by considering all vertices \( k \) in the previous stage \( V_{i-1} \) and adding the cost of the edge from \( k \) to \( j \).
+
+4. **Final Stage**:
+   - The goal is to find the minimum cost to reach the target vertex \( t \) in the last stage \( k \):
+     \[
+     \text{min\_cost} = \min_{j \in V_k} p(k, j)
+     \]
+   - This will give the minimum cost from the source \( s \) to the target \( t \).
 
 <br>
 <div align='center'>
