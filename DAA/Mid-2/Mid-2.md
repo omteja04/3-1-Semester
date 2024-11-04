@@ -52,63 +52,60 @@ We cannot discard State C as it has a different weight. If more items are consid
 
 Given:
 
-- \( n = 3 \)
-- Maximum capacity \( m = 6 \)
-- Profits \( (p_1, p_2, p_3) = (1, 2, 5) \)
-- Weights \( (w_1, w_2, w_3) = (2, 3, 4) \)
+- `n = 3` (3 items)
+- Maximum capacity `m = 6`
+- Profits `p1, p2, p3 = 1, 2, 5`
+- Weights `w1, w2, w3 = 2, 3, 4`
 
 #### Step 1: Define the DP Array
 
-Let \( dp[i][j] \) represent the maximum profit that can be obtained with the first \( i \) items and a knapsack capacity \( j \).
+Let `dp[i][j]` represent the maximum profit that can be obtained with the first `i` items and a knapsack capacity `j`.
 
 #### Step 2: Initialization
 
-- Initialize \( dp[0][j] = 0 \) for all \( j \), representing the case with zero items.
-- Initialize \( dp[i][0] = 0 \) for all \( i \), representing the case with zero capacity.
+- `dp[0][j] = 0` for all `j`, representing the case with zero items.
+- `dp[i][0] = 0` for all `i`, representing the case with zero capacity.
 
 #### Step 3: DP Transition
 
-For each item \( i \) and each capacity \( j \), we have two options:
+For each item `i` and each capacity `j`, we have two options:
 
-1. Exclude the item \( i \): \( dp[i][j] = dp[i-1][j] \)
-2. Include the item \( i \) (if \( w_i \leq j \)): \( dp[i][j] = dp[i-1][j - w_i] + p_i \)
+1. **Exclude the item `i`**: `dp[i][j] = dp[i-1][j]`
+2. **Include the item `i`** (if `w_i <= j`): `dp[i][j] = dp[i-1][j - w_i] + p_i`
 
 We select the option that gives the maximum profit:
-\[
-dp[i][j] = \max(dp[i-1][j], dp[i-1][j - w_i] + p_i) \quad \text{if } w_i \leq j
-\]
+
+```
+dp[i][j] = max(dp[i-1][j], dp[i-1][j - w_i] + p_i) if w_i <= j
+```
 
 #### Step 4: Fill the DP Table
 
 Let's fill in the table based on the provided values.
 
-| Item \( i \) | Weight \( w_i \) | Profit \( p_i \) |
-| ------------ | ---------------- | ---------------- |
-| 1            | 2                | 1                |
-| 2            | 3                | 2                |
-| 3            | 4                | 5                |
+| Item `i` | Weight `w_i` | Profit `p_i` |
+| -------- | ------------ | ------------ |
+| 1        | 2            | 1            |
+| 2        | 3            | 2            |
+| 3        | 4            | 5            |
 
 **DP Table** (rows represent items and columns represent capacities):
 
-\[
-\begin{array}{c|ccccccc}
-i \backslash j & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
-\hline
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
-2 & 0 & 0 & 1 & 2 & 2 & 3 & 3 \\
-3 & 0 & 0 & 1 & 2 & 5 & 5 & 6 \\
-\end{array}
-\]
+| i \ j | 0   | 1   | 2   | 3   | 4   | 5   | 6   |
+| ----- | --- | --- | --- | --- | --- | --- | --- |
+| 0     | 0   | 0   | 0   | 0   | 0   | 0   | 0   |
+| 1     | 0   | 0   | 1   | 1   | 1   | 1   | 1   |
+| 2     | 0   | 0   | 1   | 2   | 2   | 3   | 3   |
+| 3     | 0   | 0   | 1   | 2   | 5   | 5   | 6   |
 
 #### Step 5: Obtain the Optimal Solution
 
-The value in \( dp[3][6] = 6 \) is the maximum profit obtainable with a knapsack capacity of 6 and the given items.
+The value in `dp[3][6] = 6` is the maximum profit obtainable with a knapsack capacity of 6 and the given items.
 
 #### Explanation
 
-1. For capacity \( j = 6 \) and item set \((p_1, p_2, p_3)\):
+1. For capacity `j = 6` and item set `(p1, p2, p3)`:
    - By including item 3 (weight = 4, profit = 5), we achieve a profit of 6 when combined with item 1 (weight = 2, profit = 1).
-2. Items chosen are item 1 and item 3, giving a total weight of \( 2 + 4 = 6 \) and a total profit of \( 1 + 5 = 6 \).
+2. Items chosen are item 1 and item 3, giving a total weight of `2 + 4 = 6` and a total profit of `1 + 5 = 6`.
 
 Thus, the optimal solution yields a maximum profit of **6** with the given capacity of the knapsack.
