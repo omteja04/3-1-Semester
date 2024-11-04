@@ -15,6 +15,12 @@
       - [Step 4: Fill the DP Table](#step-4-fill-the-dp-table)
       - [Step 5: Obtain the Optimal Solution](#step-5-obtain-the-optimal-solution)
       - [Explanation](#explanation)
+  - [Explain the problem of Traveling Sales person. And Solve the TSP for the graph edge costs given by the following Cost Adjacency matrix](#explain-the-problem-of-traveling-sales-person-and-solve-the-tsp-for-the-graph-edge-costs-given-by-the-following-cost-adjacency-matrix)
+    - [Problem Definition](#problem-definition)
+    - [Solving TSP with a Cost Adjacency Matrix](#solving-tsp-with-a-cost-adjacency-matrix)
+    - [Solution](#solution)
+    - [Finding the Optimal Tour](#finding-the-optimal-tour)
+  - [Explain the problem of Multistage Graph and find the shortest path and its cost for the given multistage graph](#explain-the-problem-of-multistage-graph-and-find-the-shortest-path-and-its-cost-for-the--given-multistage-graph)
 
 # Mid-2
 
@@ -106,3 +112,63 @@ The value in `dp[3][6] = 6` is the maximum profit obtainable with a knapsack cap
 2. Items chosen are item 1 and item 3, giving a total weight of `2 + 4 = 6` and a total profit of `1 + 5 = 6`.
 
 Thus, the optimal solution yields a maximum profit of **6** with the given capacity of the knapsack.
+
+---
+
+## Explain the problem of Traveling Sales person. And Solve the TSP for the graph edge costs given by the following Cost Adjacency matrix
+
+The **Travelling Salesperson Problem (TSP)** is a classic optimization problem in which a salesperson must visit a set of cities exactly once and return to the starting city, while minimizing the total travel cost. TSP is an NP-hard problem, meaning that the computational time required to solve it grows exponentially with the number of cities.
+
+### Problem Definition
+
+Given:
+
+- A set of `n` cities and the travel cost between each pair of cities.
+- The goal is to determine the shortest possible route that:
+  - Visits each city exactly once.
+  - Returns to the starting city.
+
+In the TSP, a common approach is to represent the travel costs between cities as an **adjacency matrix**, where the entry `cost[i][j]` represents the travel cost from city `i` to city `j`. The challenge is to find the path with the minimum total cost.
+
+### Solving TSP with a Cost Adjacency Matrix
+
+Let’s solve the TSP for the given graph using the **Cost Adjacency Matrix**:
+
+|     |     |     |     |
+| --- | --- | --- | --- |
+| 0   | 10  | 15  | 20  |
+| 5   | 0   | 9   | 10  |
+| 6   | 13  | 0   | 12  |
+| 8   | 8   | 9   | 0   |
+
+Here:
+
+- There are 4 cities (labeled `1`, `2`, `3`, `4`).
+- The entry at `matrix[i][j]` gives the travel cost from city `i` to city `j`.
+
+### Solution
+
+We will solve this problem by exploring all possible solutions systematically and picking the best one.
+
+Here’s a structured way to approach this problem using a bottom-up dynamic programming technique.
+
+![tsp-1](https://i.ibb.co/mG6JVsN/TSP-1.jpg)
+![tsp-2](https://i.ibb.co/8bbDpz9/TSP-2.jpg)
+
+### Finding the Optimal Tour
+
+After calculating the costs for each tour, we identify the tour with the minimum cost:
+
+- The minimum cost is **35**.
+- The optimal tour is: **1 → 2 → 4 → 3 → 1**
+
+---
+
+## Explain the problem of Multistage Graph and find the shortest path and its cost for the given multistage graph
+
+<br>
+<div align='center'>
+  <a href='https://github.com/omteja04' target='_blank'>
+    <img src='https://img.shields.io/badge/GitHub-omteja04-181717?logo=github' alt='GitHub Profile'>
+  </a>
+</div>
