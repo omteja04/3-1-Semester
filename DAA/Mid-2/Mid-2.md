@@ -6,10 +6,9 @@
 
 - [Mid-2](#mid-2)
   - [Describe the Dynamic 0/1 Knapsack Problem. Define merging and purging rules in 0/1 knapsack problem and explain with an example.](#describe-the-dynamic-01-knapsack-problem-define-merging-and-purging-rules-in-01-knapsack-problem-and-explain-with-an-example)
-    - [Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).](#find-an-optimal-solution-for-the-dynamic-programming-01-knapsack-instance-for-n3-m6-profits-are-p1-p2-p3---125-weights-are-w1w2w3234)
     - [Merging and Purging Rules in 0/1 Knapsack Problem](#merging-and-purging-rules-in-01-knapsack-problem)
     - [Example of Merging and Purging](#example-of-merging-and-purging)
-    - [Solving a Dynamic Programming 0/1 Knapsack Instance](#solving-a-dynamic-programming-01-knapsack-instance)
+    - [Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).](#find-an-optimal-solution-for-the-dynamic-programming-01-knapsack-instance-for-n3-m6-profits-are-p1-p2-p3---125-weights-are-w1w2w3234)
       - [Step 1: Define the DP Array](#step-1-define-the-dp-array)
       - [Step 2: Initialization](#step-2-initialization)
       - [Step 3: DP Transition](#step-3-dp-transition)
@@ -20,8 +19,6 @@
 # Mid-2
 
 ## Describe the Dynamic 0/1 Knapsack Problem. Define merging and purging rules in 0/1 knapsack problem and explain with an example.
-
-### Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).
 
 The **Dynamic 0/1 Knapsack Problem** is a classic optimization problem in which you have a knapsack with a maximum weight capacity \( m \) and a set of \( n \) items, each with a weight \( w_i \) and a profit (or value) \( p_i \). The objective is to determine the maximum profit that can be obtained by selecting a subset of items such that the total weight does not exceed the knapsack’s capacity. In the 0/1 variant, each item can either be included in the knapsack or excluded, meaning fractional parts of items are not allowed.
 
@@ -48,7 +45,7 @@ Using the **purging rule**, we can discard State B because it has a lower profit
 
 We cannot discard State C as it has a different weight. If more items are considered, the **merging rule** will apply by combining results with similar weights but prioritizing those with higher profits.
 
-### Solving a Dynamic Programming 0/1 Knapsack Instance
+### Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).
 
 Given:
 
