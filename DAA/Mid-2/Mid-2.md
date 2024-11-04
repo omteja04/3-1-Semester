@@ -177,7 +177,7 @@ We will solve this problem by exploring all possible solutions systematically an
 Here’s a structured way to approach this problem using a bottom-up dynamic programming technique.
 
 ![tsp-1](https://i.ibb.co/mG6JVsN/TSP-1.jpg)
-![tsp-2](https://i.ibb.co/8bbDpz9/TSP-2.jpg)
+![tsp-2](https://i.ibb.co/S3C5BRM/TSP-2.jpg)
 
 ### Finding the Optimal Tour
 
