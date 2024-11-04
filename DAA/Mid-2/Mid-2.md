@@ -26,6 +26,8 @@
     - [Finding the Shortest Path and Its Cost](#finding-the-shortest-path-and-its-cost)
     - [Problem Definition](#problem-definition-1)
     - [Dynamic Programming Formulation](#dynamic-programming-formulation)
+    - [Problem](#problem)
+    - [Solution](#solution-1)
 
 # Mid-2
 
@@ -78,7 +80,7 @@ Let \( dp[i][j] \) represent the maximum profit that can be obtained with the fi
 
 For each item \( i \) and each capacity \( j \), we have two options:
 
-1. **Exclude the item \( i \)**: 
+1. **Exclude the item \( i \)**:
    \[
    dp[i][j] = dp[i-1][j]
    \]
@@ -108,12 +110,12 @@ Let’s fill in the table based on the provided values.
 \[
 \begin{array}{|c|c|c|c|c|c|c|c|}
 \hline
-i \backslash j & 0   & 1   & 2   & 3   & 4   & 5   & 6   \\
+i \backslash j & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
 \hline
-0             & 0   & 0   & 0   & 0   & 0   & 0   & 0   \\
-1             & 0   & 0   & 1   & 1   & 1   & 1   & 1   \\
-2             & 0   & 0   & 1   & 2   & 2   & 3   & 3   \\
-3             & 0   & 0   & 1   & 2   & 5   & 5   & 6   \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+2 & 0 & 0 & 1 & 2 & 2 & 3 & 3 \\
+3 & 0 & 0 & 1 & 2 & 5 & 5 & 6 \\
 \hline
 \end{array}
 \]
@@ -154,12 +156,12 @@ Let’s solve the TSP for the given graph using the **Cost Adjacency Matrix**:
 \[
 \begin{array}{|c|c|c|c|c|}
 \hline
-     & 1   & 2   & 3   & 4   \\
+& 1 & 2 & 3 & 4 \\
 \hline
-1    & 0   & 10  & 15  & 20  \\
-2    & 5   & 0   & 9   & 10  \\
-3    & 6   & 13  & 0   & 12  \\
-4    & 8   & 8   & 9   & 0   \\
+1 & 0 & 10 & 15 & 20 \\
+2 & 5 & 0 & 9 & 10 \\
+3 & 6 & 13 & 0 & 12 \\
+4 & 8 & 8 & 9 & 0 \\
 \hline
 \end{array}
 \]
@@ -168,7 +170,6 @@ Here:
 
 - There are 4 cities (labeled `1`, `2`, `3`, `4`).
 - The entry at \text{matrix}[i][j] gives the travel cost from city \( i \) to city \( j \).
-
 
 ### Solution
 
@@ -205,40 +206,49 @@ A **multistage graph** is a directed graph that consists of multiple stages wher
 To find the shortest path in a multistage graph, we can use **Dynamic Programming**. Here's how to approach the problem:
 To formulate the dynamic programming approach for a \( k \)-stage graph problem, let's consider the definitions and recursive relationships required to derive the minimum cost paths from a source vertex \( s \) to a target vertex \( t \).
 
+In this we will traverse from the destination node.
+
 ### Problem Definition
 
-1. **Graph Structure**: 
-   - The graph is divided into \( k \) stages. Each stage \( V_i \) contains a set of vertices. The path starts at the source vertex in stage 1 and ends at the target vertex in stage \( k \).
-   - The vertices in the graph are denoted as \( V_1, V_2, \ldots, V_k \), where \( V_1 \) is the set of vertices reachable from the source \( s \) and \( V_k \) contains the target vertex \( t \).
+**Graph Structure**:
 
-2. **Decision Making**:
-   - The goal is to make a sequence of decisions about which vertex to choose at each stage \( i \) (where \( 1 \leq i \leq k-2 \)) to minimize the total path cost to the target vertex \( t \).
+- The graph is divided into \( k \) stages. Each stage \( V_i \) contains a set of vertices. The path starts at the source vertex in stage 1 and ends at the target vertex in stage \( k \).
+- The vertices in the graph are denoted as \( V_1, V_2, \ldots, V_k \), where \( V_1 \) is the set of vertices reachable from the source \( s \) and \( V_k \) contains the target vertex \( t \).
 
 ### Dynamic Programming Formulation
 
 1. **State Definition**:
-   - Let \( p(i, j) \) represent the minimum cost to reach the vertex \( j \) in stage \( i \) from the source \( s \). 
-
+   - Let \( \text{cost}(s, i) \) represent the minimum cost from node \( i \) in stage \( s \) to the target node \( t \).
 2. **Base Case**:
-   - For the first stage:
+
+   - Since the cost to reach the target from itself is zero, we define:
      \[
-     p(1, j) = \text{cost}(s, j) \quad \text{for all } j \in V_1
+     \text{cost}(s, t) = 0
      \]
-   - This means the cost to reach any vertex in stage 1 is simply the cost of the edge connecting the source \( s \) to that vertex.
+   - This implies that the minimum cost to reach the target from the target node \( t \) is zero.
 
 3. **Recursive Relation**:
-   - For subsequent stages, the cost to reach a vertex \( j \) in stage \( i \) can be computed as:
-     \[
-     p(i, j) = \min_{k \in V_{i-1}} \left( p(i-1, k) + \text{cost}(k, j) \right)
-     \]
-   - This relation indicates that the minimum cost \( p(i, j) \) is obtained by considering all vertices \( k \) in the previous stage \( V_{i-1} \) and adding the cost of the edge from \( k \) to \( j \).
 
-4. **Final Stage**:
-   - The goal is to find the minimum cost to reach the target vertex \( t \) in the last stage \( k \):
+   - For any node \( j \) in stage \( i \), the minimum cost to reach the target \( t \) from \( j \) is calculated by considering all nodes \( l \) in the next stage (\( i + 1 \)) that are connected to \( j \). The formula is:
      \[
-     \text{min\_cost} = \min_{j \in V_k} p(k, j)
+     \text{cost}(i, j) = \min\_{l \in \text{next stage}} \left( \text{c}(j, l) + \text{cost}(i + 1, l) \right)
      \]
-   - This will give the minimum cost from the source \( s \) to the target \( t \).
+   - Here:
+     - \( \text{c}(j, l) \) is the cost of the edge from node \( j \) to node \( l \) in the next stage.
+     - \( \text{cost}(i + 1, l) \) is the minimum cost to reach the target \( t \) from node \( l \), which we calculate recursively.
+
+4. **Final Solution**:
+   - The minimum cost to go from the source \( s \) to the target \( t \) is given by \( \text{cost}(1, s) \), where \( \text{cost}(1, s) \) is computed by filling in the \( \text{cost}(i, j) \) values for each node, starting from the target \( t \) and moving backward through each stage towards the source \( s \).
+
+### Problem
+
+![alt text](https://i.ibb.co/RHGnfHz/image.png)
+
+### Solution
+
+![1](https://i.ibb.co/BcHrRtk/Multistage-1.jpg)
+![2](https://i.ibb.co/WsmzH92/Multistage-2.jpg)
+![3](https://i.ibb.co/MBHmk3h/Multistage-3.jpg)
 
 <br>
 <div align='center'>
