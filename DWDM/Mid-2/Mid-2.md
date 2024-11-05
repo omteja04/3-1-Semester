@@ -45,18 +45,17 @@
   - [Example of Candidate Generation](#example-of-candidate-generation)
   - [Summary](#summary-1)
 - [12. Compare and contrast the advantages and disadvantages of K-means and bisecting KMeans in terms of performance and quality of clustering results.](#12-compare-and-contrast-the-advantages-and-disadvantages-of-k-means-and-bisecting-kmeans-in-terms-of-performance-and-quality-of-clustering-results)
-  - [Definitions](#definitions)
-  - [Comparison of K-Means and Bisecting K-Means](#comparison-of-k-means-and-bisecting-k-means)
-  - [Summary](#summary-2)
+    - [K-Means](#k-means)
+    - [Bisecting K-Means](#bisecting-k-means)
 - [13. Compare and contrast clustering and classification](#13-compare-and-contrast-clustering-and-classification)
-  - [Definitions](#definitions-1)
+  - [Definitions](#definitions)
   - [Comparison of Clustering and Classification](#comparison-of-clustering-and-classification)
-  - [Summary](#summary-3)
+  - [Summary](#summary-2)
 - [14. Describe k-means clustering algorithms in terms of the following criteria:](#14-describe-k-means-clustering-algorithms-in-terms-of-the-following-criteria)
   - [(i) Shapes of Clusters that can be Determined](#i-shapes-of-clusters-that-can-be-determined)
   - [(ii) Input Parameters that Must be Specified](#ii-input-parameters-that-must-be-specified)
   - [(iii) Limitations](#iii-limitations)
-  - [Summary](#summary-4)
+  - [Summary](#summary-3)
 
 ## 1. What are the new features of C4.5 algorithm comparing with original Quinlan’s ID3 algorithm for decision-tree generation?
 
@@ -453,29 +452,57 @@ The candidate generation procedure in the Apriori algorithm consists of generati
 
 ## 12. Compare and contrast the advantages and disadvantages of K-means and bisecting KMeans in terms of performance and quality of clustering results.
 
-### Definitions
+K-Means and Bisecting K-Means are both popular clustering algorithms used in unsupervised learning. While they share a common goal of grouping data into clusters, they employ different strategies and have varying advantages and disadvantages in terms of performance and clustering quality.
+
+#### K-Means
 
 **K-Means**: K-Means is an iterative clustering algorithm that partitions a dataset into \(k\) clusters, where each data point belongs to the cluster with the nearest mean (centroid). It aims to minimize the total distance between data points and their respective cluster centers.
 
+**Advantages:**
+
+1. **Simplicity**: K-Means is easy to understand and implement. The algorithm iteratively assigns data points to the nearest cluster center and updates the centers based on the assigned points.
+
+2. **Speed**: K-Means is computationally efficient, especially for large datasets. Its time complexity is typically \(O(n \cdot k \cdot i)\), where \(n\) is the number of data points, \(k\) is the number of clusters, and \(i\) is the number of iterations.
+
+3. **Scalability**: The algorithm can handle large datasets well and is suitable for high-dimensional spaces.
+
+4. **Works Well with Globular Clusters**: K-Means performs well when clusters are spherical and evenly sized.
+
+**Disadvantages:**
+
+1. **Sensitivity to Initialization**: The choice of initial cluster centers can significantly affect the final clustering results. Poor initialization can lead to suboptimal clustering.
+
+2. **Fixed Number of Clusters**: The user must specify the number of clusters \(k\) in advance, which may not always be known.
+
+3. **Assumes Equal Cluster Size**: K-Means tends to form clusters of similar sizes and shapes, which may not suit all datasets.
+
+4. **Sensitivity to Outliers**: The presence of outliers can distort the mean of the clusters, leading to inaccurate results.
+
+---
+
+#### Bisecting K-Means
+
 **Bisecting K-Means**: Bisecting K-Means is a hierarchical clustering method that starts with all data points in a single cluster and recursively splits it into two clusters using K-Means. This process continues until the desired number of clusters \(k\) is reached, resulting in a more structured hierarchy of clusters.
 
-### Comparison of K-Means and Bisecting K-Means
+**Advantages:**
 
-| Feature                           | K-Means                                 | Bisecting K-Means                                                      |
-| --------------------------------- | --------------------------------------- | ---------------------------------------------------------------------- |
-| **Simplicity**                    | Easy to implement                       | More complex                                                           |
-| **Speed**                         | Fast for large datasets                 | Slower due to recursive splitting                                      |
-| **Scalability**                   | Highly scalable                         | Less scalable for very large datasets                                  |
-| **Quality of Clusters**           | May struggle with non-globular clusters | Generally yields better quality, especially for non-spherical clusters |
-| **Sensitivity to Initialization** | Sensitive                               | Less sensitive                                                         |
-| **Hierarchical Structure**        | No                                      | Yes                                                                    |
-| **Fixed Number of Clusters**      | Yes                                     | Yes                                                                    |
-| **Handling of Outliers**          | Sensitive                               | Generally more robust                                                  |
+1. **Hierarchical Structure**: Bisecting K-Means creates a hierarchy of clusters, allowing for a more structured approach to clustering. This is useful for understanding data at multiple levels of granularity.
 
-### Summary
+2. **Better Quality Clusters**: By recursively splitting clusters, Bisecting K-Means often yields higher quality clusters than standard K-Means, especially when clusters are not spherical.
 
-- **K-Means** is best suited for large datasets with spherical clusters, known for its speed and simplicity.
-- **Bisecting K-Means** provides higher quality clustering results and hierarchical structure but requires more computational resources and is more complex to implement.
+3. **Flexibility in Choosing Number of Clusters**: While it still requires specifying the number of clusters, Bisecting K-Means provides more flexibility in obtaining different levels of clustering by adjusting the splitting process.
+
+4. **Less Sensitive to Initialization**: The initial clustering in Bisecting K-Means is less sensitive to initialization compared to K-Means, potentially leading to more stable results.
+
+**Disadvantages:**
+
+1. **Higher Computational Cost**: Bisecting K-Means is generally more computationally intensive than standard K-Means, especially for large datasets, as it involves multiple iterations of K-Means for splitting.
+
+2. **Complexity**: The hierarchical approach can be more complex to implement and interpret, making it less straightforward than K-Means.
+
+3. **Scalability Issues**: Although it can handle larger datasets than some hierarchical methods, it may not scale as effectively as K-Means for very large datasets.
+
+4. **Still Requires Specification of \(k\)**: Like K-Means, the user must still define the number of clusters in advance, which may not always be straightforward.
 
 ---
 
