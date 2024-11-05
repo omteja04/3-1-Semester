@@ -52,6 +52,11 @@
     - [Summary of Relationships](#summary-of-relationships)
     - [Visualization](#visualization)
     - [Conclusion](#conclusion)
+  - [Briefly explain Non deterministic Algorithms with example](#briefly-explain-non-deterministic-algorithms-with-example)
+    - [Characteristics of Non-deterministic Algorithms:](#characteristics-of-non-deterministic-algorithms)
+    - [Example: Non-deterministic Turing Machine (NTM) for SAT Problem](#example-non-deterministic-turing-machine-ntm-for-sat-problem)
+    - [Benefits of Non-deterministic Algorithms](#benefits-of-non-deterministic-algorithms)
+    - [Conclusion](#conclusion-1)
 
 # Mid-2
 
@@ -478,6 +483,35 @@ A common way to visualize these relationships is:
 ### Conclusion
 
 The distinctions between P, NP, NP-Complete, and NP-Hard are crucial for understanding the complexity of computational problems. While problems in P can be solved efficiently, NP problems may not be solvable efficiently, and NP-Complete problems represent the most challenging of those. NP-Hard problems encompass a broader class, including some that may be fundamentally unsolvable in the same way. The P vs. NP question remains one of the most significant unsolved problems in computer science.
+
+---
+
+
+
+## Briefly explain Non deterministic Algorithms with example
+
+Non-deterministic algorithms are a type of algorithm that can make "guesses" at certain steps, potentially exploring multiple paths or solutions simultaneously. Unlike deterministic algorithms, which have a clear and predictable path to a solution based on the input, non-deterministic algorithms can take many possible paths to reach a solution and are often associated with non-deterministic Turing machines.
+
+### Characteristics of Non-deterministic Algorithms:
+1. **Multiple Paths**: They can follow multiple execution paths at once, effectively exploring various possibilities simultaneously.
+2. **Guessing**: At some steps, these algorithms can "guess" a solution from a set of possibilities.
+3. **Verification**: Solutions can be verified in polynomial time, even if finding the solution itself may not be efficient.
+
+### Example: Non-deterministic Turing Machine (NTM) for SAT Problem
+Consider the Boolean satisfiability problem (SAT), which asks if there exists an assignment of truth values (true/false) to variables such that the entire Boolean expression evaluates to true. A non-deterministic algorithm for SAT can work as follows:
+
+1. **Guess an Assignment**: The algorithm non-deterministically guesses an assignment of true/false values to all variables in the expression. This guess can be viewed as exploring all possible combinations of truth values at once.
+2. **Evaluate**: After guessing, the algorithm evaluates the Boolean expression with the guessed assignment.
+3. **Check Validity**: If the expression evaluates to true, then the algorithm has found a satisfying assignment, and it can report success. If not, it can backtrack and guess a different assignment.
+
+### Benefits of Non-deterministic Algorithms
+- **Efficiency in Theory**: While non-deterministic algorithms may not be practical for actual computation, they provide a theoretical framework to analyze the complexity of certain problems.
+- **Ease of Verification**: Many NP problems can be solved quickly if a correct guess is provided, which is useful in cryptographic applications and optimization problems.
+
+### Conclusion
+Non-deterministic algorithms play a crucial role in understanding computational complexity, particularly in the context of NP problems. While they may not be implementable in practice, they provide insight into the nature of problem-solving and verification in computer science.
+
+---
 
 <br>
 <div align='center'>
