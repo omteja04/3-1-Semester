@@ -44,6 +44,14 @@
     - [Solution Approach](#solution-approach)
     - [State Space Tree for the Fixed-Tuple Sized Approach](#state-space-tree-for-the-fixed-tuple-sized-approach)
     - [Building the State Space Tree and Identifying Valid Paths](#building-the-state-space-tree-and-identifying-valid-paths)
+  - [Explain the classes of P and NP? And discuss about NP-Hard and NP Complete](#explain-the-classes-of-p-and-np-and-discuss-about-np-hard-and-np-complete)
+    - [1. **Class P**](#1-class-p)
+    - [2. **Class NP**](#2-class-np)
+    - [3. **NP-Complete**](#3-np-complete)
+    - [4. **NP-Hard**](#4-np-hard)
+    - [Summary of Relationships](#summary-of-relationships)
+    - [Visualization](#visualization)
+    - [Conclusion](#conclusion)
 
 # Mid-2
 
@@ -420,6 +428,56 @@ Let's go through possible subsets and check if their sum matches \( M = 31 \):
 Only **Path 1** yields a valid subset whose elements sum up to \( M = 31 \).
 
 In this tree, we only continue expanding paths until the subset sum exceeds \( M \), allowing us to prune invalid paths early and focus on finding valid solutions.
+
+---
+
+## Explain the classes of P and NP? And discuss about NP-Hard and NP Complete
+
+The classes P and NP are fundamental concepts in computational complexity theory, which studies the resources required to solve computational problems. Let's break down these concepts and discuss NP-Hard and NP-Complete.
+
+### 1. **Class P**
+
+- **Definition**: The class P consists of decision problems (problems with a yes/no answer) that can be solved by a deterministic Turing machine in polynomial time. This means there exists an algorithm that can solve any problem in this class in time that grows polynomially with the size of the input.
+- **Example**: Problems like sorting a list, finding the greatest common divisor (GCD), and determining if a number is prime are all in P because they can be solved in polynomial time.
+
+### 2. **Class NP**
+
+- **Definition**: The class NP (nondeterministic polynomial time) consists of decision problems for which a given solution can be verified in polynomial time by a deterministic Turing machine. In other words, if someone provides a potential solution to the problem, you can check if it's correct in polynomial time.
+- **Key Characteristic**: While problems in NP can be verified quickly, they may not necessarily be solvable quickly.
+- **Example**: The Boolean satisfiability problem (SAT), where given a Boolean expression, the goal is to determine if there exists an assignment of truth values to variables that makes the expression true, is in NP. If someone provides a satisfying assignment, you can verify it in polynomial time.
+
+### 3. **NP-Complete**
+
+- **Definition**: NP-Complete problems are the hardest problems in NP in the sense that if any NP-Complete problem can be solved in polynomial time (i.e., it is in P), then every problem in NP can also be solved in polynomial time. Therefore, NP-Complete problems are both in NP and as hard as any problem in NP.
+- **Characteristics**:
+  - A problem \(X\) is NP-Complete if:
+    - It is in NP.
+    - Every problem \(Y\) in NP can be reduced to \(X\) in polynomial time (this reduction means that if you can solve \(X\), you can solve \(Y\) as well).
+- **Example**: The Travelling Salesperson Problem (decision version), the Knapsack Problem, and the Hamiltonian Cycle Problem are examples of NP-Complete problems.
+
+### 4. **NP-Hard**
+
+- **Definition**: NP-Hard problems are at least as hard as the hardest problems in NP. A problem is NP-Hard if an algorithm for solving it can be used to solve any NP problem in polynomial time. However, NP-Hard problems are not required to be in NP; they do not need to be decision problems and may not even have a solution verifiable in polynomial time.
+- **Characteristics**:
+  - An NP-Hard problem does not have to be a decision problem (it can be an optimization problem).
+  - If an NP-Hard problem can be solved in polynomial time, then P = NP.
+- **Example**: The Halting Problem (which is undecidable and thus not in NP), the Traveling Salesman Problem (optimization version), and the Knapsack Problem (optimization version) are examples of NP-Hard problems.
+
+### Summary of Relationships
+
+- **P** ⊆ **NP**: All problems in P are also in NP.
+- **NP-Complete** ⊆ **NP**: All NP-Complete problems are in NP.
+- **NP-Hard**: These problems are at least as hard as NP problems and may not be in NP themselves.
+
+### Visualization
+
+A common way to visualize these relationships is:
+
+![Image](https://www.baeldung.com/wp-content/uploads/sites/4/2020/03/P-NP-NP_Hard-NP-Complete-1-1-768x587.png)
+
+### Conclusion
+
+The distinctions between P, NP, NP-Complete, and NP-Hard are crucial for understanding the complexity of computational problems. While problems in P can be solved efficiently, NP problems may not be solvable efficiently, and NP-Complete problems represent the most challenging of those. NP-Hard problems encompass a broader class, including some that may be fundamentally unsolvable in the same way. The P vs. NP question remains one of the most significant unsolved problems in computer science.
 
 <br>
 <div align='center'>
