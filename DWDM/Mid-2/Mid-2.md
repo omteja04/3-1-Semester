@@ -478,8 +478,6 @@ K-Means and Bisecting K-Means are both popular clustering algorithms used in uns
 
 4. **Sensitivity to Outliers**: The presence of outliers can distort the mean of the clusters, leading to inaccurate results.
 
----
-
 #### Bisecting K-Means
 
 **Bisecting K-Means**: Bisecting K-Means is a hierarchical clustering method that starts with all data points in a single cluster and recursively splits it into two clusters using K-Means. This process continues until the desired number of clusters \(k\) is reached, resulting in a more structured hierarchy of clusters.
