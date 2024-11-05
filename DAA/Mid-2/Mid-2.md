@@ -8,6 +8,9 @@
   - [Describe the Dynamic 0/1 Knapsack Problem. Define merging and purging rules in 0/1 knapsack problem and explain with an example.](#describe-the-dynamic-01-knapsack-problem-define-merging-and-purging-rules-in-01-knapsack-problem-and-explain-with-an-example)
     - [Merging and Purging Rules in 0/1 Knapsack Problem](#merging-and-purging-rules-in-01-knapsack-problem)
     - [Example of Merging and Purging](#example-of-merging-and-purging)
+    - [Complexity Analysis of the 0/1 Knapsack Problem](#complexity-analysis-of-the-01-knapsack-problem)
+      - [Time Complexity](#time-complexity)
+      - [Space Complexity](#space-complexity)
     - [Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).](#find-an-optimal-solution-for-the-dynamic-programming-01-knapsack-instance-for-n3-m6-profits-are-p1-p2-p3---125-weights-are-w1w2w3234)
       - [Step 1: Define the DP Array](#step-1-define-the-dp-array)
       - [Step 2: Initialization](#step-2-initialization)
@@ -26,8 +29,21 @@
     - [Finding the Shortest Path and Its Cost](#finding-the-shortest-path-and-its-cost)
     - [Problem Definition](#problem-definition-1)
     - [Dynamic Programming Formulation](#dynamic-programming-formulation)
+    - [Complexity Analysis](#complexity-analysis)
+      - [Time Complexity](#time-complexity-1)
+      - [Space Complexity](#space-complexity-1)
+    - [Summary](#summary)
     - [Problem](#problem)
     - [Solution](#solution-1)
+  - [Give the statement of sum –of subsets problem. Find all sum of subsets for n=4, (w1, w2, w3, w4) = (11, 13, 24, 7) and M=31.Draw the portion of the state space tree using fixed – tuple sized approach.](#give-the-statement-of-sum-of-subsets-problem-find-all-sum-of-subsets-for-n4-w1-w2-w3-w4--11-13-24-7-and-m31draw-the-portion-of-the-state-space-tree-using-fixed--tuple-sized-approach)
+    - [Complexity Analysis of the Sum of Subsets Problem](#complexity-analysis-of-the-sum-of-subsets-problem)
+      - [1. Time Complexity](#1-time-complexity)
+      - [2. Space Complexity](#2-space-complexity)
+      - [Summary of Complexity](#summary-of-complexity)
+    - [Problem Statement for the Given Instance](#problem-statement-for-the-given-instance)
+    - [Solution Approach](#solution-approach)
+    - [State Space Tree for the Fixed-Tuple Sized Approach](#state-space-tree-for-the-fixed-tuple-sized-approach)
+    - [Building the State Space Tree and Identifying Valid Paths](#building-the-state-space-tree-and-identifying-valid-paths)
 
 # Mid-2
 
@@ -57,6 +73,36 @@ Using the **purging rule**, we can discard State B because it has a lower profit
 - State C: weight = 6, profit = 10
 
 We cannot discard State C as it has a different weight. If more items are considered, the **merging rule** will apply by combining results with similar weights but prioritizing those with higher profits.
+
+### Complexity Analysis of the 0/1 Knapsack Problem
+
+#### Time Complexity
+
+1. **Number of Subproblems**:
+
+   - There are `n` items and `m` possible knapsack capacities.
+   - This results in a total of `n * m` subproblems.
+
+2. **Operations per Subproblem**:
+   - For each subproblem `dp[i][j]`, the algorithm performs a constant amount of work to choose between including or excluding an item (basic comparison and addition).
+
+Therefore, the **time complexity** of this dynamic programming approach is:
+\[
+O(n \times m)
+\]
+where `n` is the number of items, and `m` is the knapsack capacity.
+
+#### Space Complexity
+
+1. **DP Array**:
+   - The `dp` table has dimensions `n+1` by `m+1`, storing `n * m` values.
+2. **Auxiliary Space**:
+   - No extra space beyond the `dp` array is needed, other than variables for iteration.
+
+Thus, the **space complexity** is:
+\[
+O(n \times m)
+\]
 
 ### Find an optimal solution for the dynamic programming 0/1 knapsack instance for n=3, m=6, profits are (p1, p2, p3 ) = (1,2,5), weights are (w1,w2,w3)=(2,3,4).
 
@@ -240,6 +286,44 @@ In this we will traverse from the destination node.
 4. **Final Solution**:
    - The minimum cost to go from the source \( s \) to the target \( t \) is given by \( \text{cost}(1, s) \), where \( \text{cost}(1, s) \) is computed by filling in the \( \text{cost}(i, j) \) values for each node, starting from the target \( t \) and moving backward through each stage towards the source \( s \).
 
+### Complexity Analysis
+
+#### Time Complexity
+
+1. **Per Node Calculation**:
+
+   - For each node \( j \) in a given stage \( i \), we compute the minimum cost to reach the target node \( t \). This involves evaluating all edges from \( j \) to the nodes in the next stage \( i+1 \).
+   - Assuming that each node has, on average, \( m \) outgoing edges to the next stage, calculating the minimum cost for each node \( j \) takes \( O(m) \) time.
+
+2. **Total Calculation Across All Nodes**:
+   - Since there are \( n \) total nodes in the graph, and we compute the cost for each node by looking at each of its outgoing edges, the total time complexity is:
+     \[
+     O(n \times m)
+     \]
+   - This complexity means that the algorithm is linear with respect to the number of nodes and edges in the graph, which is efficient for sparse graphs.
+
+#### Space Complexity
+
+1. **Graph Representation**:
+
+   - Storing the graph in an adjacency list or adjacency matrix requires \( O(n + m) \) space, where \( n \) is the number of nodes and \( m \) is the number of edges in the graph.
+
+2. **Cost Table**:
+
+   - We maintain a table to store the minimum cost to reach the target from each node, which requires \( O(n) \) space.
+
+3. **Total Space Complexity**:
+   - Therefore, the overall space complexity is:
+     \[
+     O(n + m)
+     \]
+   - This space requirement is efficient and manageable even for large graphs.
+
+### Summary
+
+- **Time Complexity**: \( O(n \times m) \), efficient for traversing and calculating minimum costs across all nodes and edges.
+- **Space Complexity**: \( O(n + m) \), mainly for storing the graph and cost values.
+
 ### Problem
 
 ![alt text](https://i.ibb.co/RHGnfHz/image.png)
@@ -249,6 +333,93 @@ In this we will traverse from the destination node.
 ![1](https://i.ibb.co/BcHrRtk/Multistage-1.jpg)
 ![2](https://i.ibb.co/WsmzH92/Multistage-2.jpg)
 ![3](https://i.ibb.co/MBHmk3h/Multistage-3.jpg)
+
+---
+
+## Give the statement of sum –of subsets problem. Find all sum of subsets for n=4, (w1, w2, w3, w4) = (11, 13, 24, 7) and M=31.Draw the portion of the state space tree using fixed – tuple sized approach.
+
+The **Sum of Subsets Problem** is defined as follows:
+
+> Given a set of \( n \) positive integers \( (w_1, w_2, \ldots, w_n) \) and a target sum \( M \), the problem is to find all subsets of the given set whose elements sum up to exactly \( M \).
+
+### Complexity Analysis of the Sum of Subsets Problem
+
+#### 1. Time Complexity
+
+In the Sum of Subsets problem, we need to explore all possible subsets to find the ones whose elements sum up to exactly \( M \). This is a classic example of the **subset-sum problem**, and it can be solved using either a **backtracking** or **dynamic programming** approach.
+
+- **Backtracking Complexity**: Since there are \( n \) items, each item can either be included or excluded from a subset, leading to \( 2^n \) possible subsets. Thus, the worst-case time complexity for the backtracking approach is \( O(2^n) \).
+
+- **Pruning**: Using backtracking with pruning reduces the number of nodes we need to visit. As soon as the current subset sum exceeds \( M \), we can stop exploring further down that branch. However, this pruning depends on the data and the target \( M \), so in the worst case, the time complexity remains \( O(2^n) \).
+
+#### 2. Space Complexity
+
+The space complexity depends on the **depth of the recursion**:
+
+- **Recursive Depth**: The depth of the recursive calls will be \( n \), where \( n \) is the number of elements in the set. Each recursive call requires some stack space, resulting in a space complexity of \( O(n) \) for the call stack.
+
+- **Storage for Solutions**: If we store each subset that meets the sum \( M \), the space complexity may also increase based on the number of valid subsets found. In the worst case, this could be \( O(2^n) \), but typically, we only store valid solutions.
+
+#### Summary of Complexity
+
+- **Time Complexity**: \( O(2^n) \)
+- **Space Complexity**: \( O(n) \) for recursion stack, plus additional space for storing solutions
+
+### Problem Statement for the Given Instance
+
+For \( n = 4 \), the set of weights is:
+\[
+(w_1, w_2, w_3, w_4) = (11, 13, 24, 7)
+\]
+and the target sum \( M = 31 \).
+
+### Solution Approach
+
+1. **Generate the State Space Tree**: We create a tree where each level corresponds to a decision to include or exclude a particular element of the set in the current subset.
+2. **Fixed-Tuple Sized Approach**: In this approach, we proceed by considering each element in the set, deciding whether to include it in the current subset or exclude it, and moving to the next element.
+
+### State Space Tree for the Fixed-Tuple Sized Approach
+
+Here, we’ll draw the portion of the state space tree relevant to the problem to find subsets that sum up to 31.
+
+1. **Root Node**: Start with an empty subset and a sum of 0.
+2. **Level 1 (Considering \( w_1 = 11 \))**:
+
+   - Include \( w_1 \): Subset sum = 11
+   - Exclude \( w_1 \): Subset sum = 0
+
+3. **Level 2 (Considering \( w_2 = 13 \))**:
+
+   - For each path, either include or exclude \( w_2 \).
+
+4. **Level 3 (Considering \( w_3 = 24 \))**:
+
+   - For each path, either include or exclude \( w_3 \).
+
+5. **Level 4 (Considering \( w_4 = 7 \))**:
+   - For each path, either include or exclude \( w_4 \).
+
+### Building the State Space Tree and Identifying Valid Paths
+
+Let's go through possible subsets and check if their sum matches \( M = 31 \):
+
+1. **Path 1 (Include \( w_1, w_2 \), exclude \( w_3 \), include \( w_4 \))**:
+
+   - Subset = \( \{11, 13, 7\} \)
+   - Sum = \( 11 + 13 + 7 = 31 \) (Valid subset)
+
+2. **Path 2 (Exclude \( w_1 \), include \( w_2 \), include \( w_3 \), exclude \( w_4 \))**:
+
+   - Subset = \( \{13, 24\} \)
+   - Sum = \( 13 + 24 = 37 \) (Exceeds 31, not valid)
+
+3. **Path 3 (Include \( w_1 \), exclude \( w_2 \), exclude \( w_3 \), include \( w_4 \))**:
+   - Subset = \( \{11, 7\} \)
+   - Sum = \( 11 + 7 = 18 \) (Less than 31, not valid)
+
+Only **Path 1** yields a valid subset whose elements sum up to \( M = 31 \).
+
+In this tree, we only continue expanding paths until the subset sum exceeds \( M \), allowing us to prune invalid paths early and focus on finding valid solutions.
 
 <br>
 <div align='center'>
