@@ -313,6 +313,7 @@ An expert system mainly consists of three components:
 - Knowledge Base
 
 ![Image](https://images.javatpoint.com/tutorial/ai/images/expert-systems-in-ai2.png)
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/20210427175737/architecture.png)
 
 #### 1. User Interface
 
