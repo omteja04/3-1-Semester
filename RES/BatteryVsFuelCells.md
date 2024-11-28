@@ -1,3 +1,9 @@
+<!--
+  Author: omteja04
+  Created on: 28-11-2024 07:44:40
+  Description: BatteryVsFuelCells
+-->
+
 Here’s a detailed comparison of **batteries** and **fuel cells**, highlighting their key differences:
 
 | **Aspect**                  | **Battery**                                                                                       | **Fuel Cell**                                                                                     |
